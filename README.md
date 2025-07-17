@@ -8,8 +8,8 @@ Queria saber se :
   - se poderia ser resolvida com função
   - se dá para verificar as quatro variaveis no mesmo while true
  
-  *triangulo_classificacao :
+* triangulo_classificacao :
    -outras resolucoes
 
-  *quadrado : 
+* quadrado : 
   -  outras resolucoes 
