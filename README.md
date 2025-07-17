@@ -9,7 +9,7 @@ Queria saber se :
   - se dá para verificar as quatro variaveis no mesmo while true
  
 * triangulo_classificacao :
-   -outras resolucoes
+  - outras resolucoes
 
 * quadrado : 
   -  outras resolucoes 
