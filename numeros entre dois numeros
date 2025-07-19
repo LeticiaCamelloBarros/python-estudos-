@@ -1,0 +1,19 @@
+"Faça um programa que receba dois números inteiros e gere os números inteiros que estão no intervalo compreendido por eles."
+print("insira valores diferentes para x e para y")
+x = int(input())
+y = int(input())
+valid = False
+while (valid == False):
+    if x < y:
+        for i in range(x, y + 1):
+            print(i)
+        valid = True
+    elif x > y:
+        for i in range(y, x + 1):
+            print(i)
+        valid = True
+    elif x == y:
+        print("insira valores diferentes para x e para y")
+        valid = False
+        x = int(input())
+        y = int(input())
