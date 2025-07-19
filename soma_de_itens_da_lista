@@ -1,0 +1,11 @@
+# crie um código que peça cinco valores e os some 
+lista = [int(x) for x in input().split()]
+result = sum(lista)
+print(result)
+# assim já basta , não precisamos desempacotar os itens da lista (atribuir uma variável para cada um dos itens dela )
+# pq não vamos manipular os itens dessa lista
+# mas se você ainda quiser usar as variáveis para posterior manipulação você pode fazer assim :
+# n1, n2, n3, n4, n5 = map(int, input().split())  # Desempacota já convertendo
+# lista = [n1, n2, n3, n4, n5]  # Cria a lista com os inteiros
+# result = sum(lista)
+# print(result)
