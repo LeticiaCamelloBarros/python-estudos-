@@ -1,0 +1,19 @@
+"Faça um programa que peça 10 números inteiros, calcule e mostre a "
+"quantidade de números pares e a quantidade de números impares."
+
+print("+-"*60)
+lista_de_numeros = []
+for i in range(10):
+    numero = int(input("insira um número : "))
+    lista_de_numeros.append(numero)
+
+
+lista_de_pares = []
+lista_de_impares = []
+for i in lista_de_numeros:
+    if i % 2 == 0:
+        lista_de_pares.append(i)
+    elif i % 2 != 0:
+        lista_de_impares.append(i)
+print(f"temos  {len(lista_de_pares)} numeros pares" +
+      f" e temos {len(lista_de_impares)} numeros impares")
