@@ -1,0 +1,43 @@
+"Faça um programa que receba dois números inteiros e gere os números inteiros que estão no intervalo compreendido por eles.Também faça com "
+"que nesse mesmo programa seja mostrado a soma entre cada número dentro do intervalo "
+print("insira valores diferentes para x e para y")
+print("*="*65)
+# esse "print("*="*30)" serve só para separar cada parte do código
+x = int(input())
+
+y = int(input())
+print("*="*65)
+valid = False
+while (valid == False):
+    if x < y:
+        lista = []
+        for i in range(x, y + 1):
+            lista.append(i)
+            print(i)
+        valid = True
+    elif x > y:
+        # tem que criar a lista emabaixo da frase condicional e em cima do in range para que não seja criada uma nova lista para 
+        # cada numero compreeendido no intervalo 
+        lista = []
+        for i in range(y, x + 1):
+            lista.append(i)
+            print(i)
+        valid = True
+# vamos criar duas listas com o mesmo nome porque cada lista "lista" só será criada caso a condicional seja obedecida e ela será válida para ser usada 
+# quando for citada novamente lá embaixo para fazer a operação de soma 
+    elif x == y:
+        print("*="*65)
+        print("insira valores diferentes para x e para y")
+        valid = False
+        x = int(input())
+
+        y = int(input())
+        print("*="*65)
+
+# print(lista)
+# printe a lista para ver se está tudo ocorrendo certinho
+
+print("*="*65)
+soma_items = sum(lista)
+print(
+    f"a soma dos números compreendidos entre esse intervalo é : {soma_items}")
