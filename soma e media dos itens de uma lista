@@ -1,0 +1,7 @@
+# crie um código que peça n valores , os some e ache a média 
+lista = [int(x) for x in input().split()]
+result = sum(lista)
+# variavel que guarda a soma dos valores lidos 
+med = result/ len(lista)
+# variavel que guarda a média dos valores lidos 
+print(f"a soma dos números é : {result}" + f"e a média deles é : {med}")
