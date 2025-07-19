@@ -1,0 +1,22 @@
+"Desenvolva um gerador de tabuada, capaz de gerar a tabuada de qualquer número "
+"inteiro entre 1 a 10. O usuário deve informar de qual numero ele deseja ver a tabuada. A saída deve ser conforme o exemplo abaixo:"
+numero = int(input())
+print("=-"*70)
+state = False
+while (state == False):
+    if 1 <= numero <= 10:
+        for i in range(1, 11):
+            # para i sendo um  numero compreendido entre o intervalo entre 1 e 10 
+            multiplicacao = i*numero
+            print(f" {i} x {numero} = {multiplicacao}")
+        state = True
+   else : 
+        print("insira um numero compreendido entre 1 e 10")
+
+print("=-"*70)
+
+#para voce acha a tabuada dos dez primeiros numeros fora do intervalo de 1 a 10 basta tirar a condicional e o loop while e colocar em ação apenas a seguinte parte do código 
+# for i in range(1, 11):
+#             # para i sendo um  numero compreendido entre o intervalo entre 1 e 10 
+#             multiplicacao = i*numero
+#             print(f" {i} x {numero} = {multiplicacao}")
