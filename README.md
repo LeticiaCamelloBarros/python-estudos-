@@ -12,8 +12,10 @@ Queria saber se :
   - teria  outras resolucoes
 
 * a questao quadrado : 
-  -  teria outras resolucoes
+  -  teria outras resolucoes .
  
 * a questao primos
-  - teria outras resolucoes 
+  - teria outras resolucoes .
   
+* as questões de fribonarcci :
+  - outras formas de responder . 
