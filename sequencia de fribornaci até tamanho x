@@ -1,0 +1,14 @@
+"A série de Fibonacci é formada pela seqüência 1,1,2,3,5,8,13,21,34,55,... Faça um programa capaz de gerar a série até o n−ésimo termo."
+
+tamanho = int(
+    input("diga até quantos termos você quer que a sua sequência se prolongue : "))
+
+sequencia = [1, 1]
+#  a sequencia de fribonarci começa com 1 1 
+for i in range(tamanho):
+    atual = sequencia[-1] + sequencia[-2]
+    # iguala o novo termo aos dois últimos 
+    sequencia.append(atual)
+    # adiciona o novo termo à lista 
+print(sequencia)
+
