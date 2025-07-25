@@ -1,0 +1,24 @@
+
+"Faça um programa que calcule o fatorial de um número "
+"inteiro fornecido pelo usuário. Ex.: 5!=5.4.3.2.1=120"
+
+
+def fatorial(numero):
+    lista = list(range(numero, 0, -1))
+    # o menos um como terceiro parâmetro coloca o intervalo para ser gerado em ordem decrescente 
+    produto = 1
+    for num in lista:
+        produto = produto * num 
+
+    # Método 1 (join) - Ideal para o seu caso
+    sequencia = " x ".join(str(num) for num in lista)
+    print(f"{numero}! = {sequencia} = {produto}")
+
+    return produto
+
+
+numero = int(input())
+
+fatorial(numero)
+
+#agora vamos supor que você queirar criar uma lista e
