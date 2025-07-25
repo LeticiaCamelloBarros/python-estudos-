@@ -1,0 +1,42 @@
+caracteres_especiais = {"!", "@", "#", "$", "&", "*", ".", "_", "-"}
+numeros = {"1", "2", "0", "3", "4", "5", "6", "7", "8", "9"}
+# usamos sets (representados por chaves) ao invés de listas e tuplas porque set a verificação de que um caracter existe ou não em um set
+# é mais ágil que a verificação que um caractere existe ou não em uma lista ou tupla .
+while True:
+    lista_caracteres_especiais = []
+    lista_letras_maiusculas = []
+    lista_numeros = []
+    # as listas vão ser usadas para , a partir da leitura do seu comprimento , verificar se existe os critérios mínimos para uma senha forte
+    senha = input("Para obter uma senha forte precisamos de caracteres especiais , números e letras maiúsculas e ter mais que oito caracteres .\n"
+                  "crie uma senha que contenha : pelo menos uma letra maiúscula , um número e  um caracter especial ."
+                  "\ninsira a sua senha : ")
+    senha = list(senha)
+    # aqui vamos transformar a nossa string em lista
+    for caractere in senha:
+        if caractere in caracteres_especiais:
+            # aqucaractereeu coloco a condicional de caso algum dos caracteres especiais acontecerem adicionar eles à lista caracteres especiais
+            lista_caracteres_especiais.append(caractere)
+        elif caractere.isupper():
+            # is upper é uma função que verifica se um caracteres é maiúsculo
+            lista_letras_maiusculas.append(caractere)
+        elif caractere in numeros:
+            lista_numeros.append(caractere)
+    if len(senha) >= 8:
+        senha_state = True
+    else:
+        senha_state = False
+    if len(lista_caracteres_especiais) >= 1 and len(lista_letras_maiusculas) >= 1 and len(lista_numeros) >= 1 and len(senha) >= 8:
+        senha = "".join(senha)
+        # vamos transformar nossa lista em string para mostra-la aqui no nosso print a seguir
+        print(f"a senha {senha} é válida")
+        break
+    else:
+        if len(lista_caracteres_especiais) < 1:
+            print(
+                "precisamos de pelo menos um caractere especial para ser uma senha forte")
+        if len(lista_letras_maiusculas) < 1:
+            print("precisamos de pelo menos uma letra maiúscula para ser uma senha forte")
+        if len(lista_numeros) < 1:
+            print("precisamos de pelo menos um número para termos uma senha forte")
+        if senha_state == False:
+            print("precisamos de pelo menos 8 caracteres para fazer uma senha forte ")
