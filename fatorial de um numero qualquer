@@ -12,6 +12,7 @@ def fatorial(numero):
 
     # Método 1 (join) - Ideal para o seu caso
     sequencia = " x ".join(str(num) for num in lista)
+# o join serve para juntar os itens de umma lista e transformalos em partes de uma string , eles serão unidos nesse caso com o " x " , mas o unificador fica a seu critério 
     print(f"{numero}! = {sequencia} = {produto}")
 
     return produto
