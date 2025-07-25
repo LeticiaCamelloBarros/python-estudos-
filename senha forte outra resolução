@@ -1,0 +1,36 @@
+print("Digite uma senha que contenha: pelo menos uma letra maiúscula, um número e um caractere especial (!@#$%&*._-):")
+
+caracteres_especiais = "!@#$%&*._-"
+tem_maiuscula = False
+tem_numero = False
+tem_especial = False
+
+while True:
+    senha = input()
+    
+    # Verifica cada caractere individualmente
+    for caractere in senha:
+        if caractere in caracteres_especiais:
+            tem_especial = True
+        elif caractere.isupper():
+            tem_maiuscula = True
+        elif caractere.isdigit():  # Corrigido: verifica dígitos em string
+            tem_numero = True
+    
+    # Verifica se todos os requisitos foram atendidos
+    if tem_maiuscula and tem_numero and tem_especial:
+        print("Senha válida!")
+        break
+    else:
+        print("Senha inválida! Deve conter:")
+        if not tem_maiuscula:
+            print("- Pelo menos uma letra maiúscula")
+        if not tem_numero:
+            print("- Pelo menos um número")
+        if not tem_especial:
+            print("- Pelo menos um caractere especial (!@#$%&*._-)")
+        
+        # Reseta as variáveis para nova tentativa
+        tem_maiuscula = False
+        tem_numero = False
+        tem_especial = False
