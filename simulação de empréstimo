@@ -1,0 +1,25 @@
+"""Peça: • valor do empréstimo • salário do cliente • número de parcelas
+
+A regra é:
+
+Se o valor da parcela ultrapassar 30% do salário, o empréstimo deve ser negado.
+
+Desafio: Validar a entrada e dar resposta com motivo do resultado."""
+
+
+"""lembrando que o valor das  parcelas é igual ao valor do empréstimo dividido por cada parcela """
+
+
+def emprestimo(n_parcela, salario, valor_emprestimo):
+    valor_parcela = valor_emprestimo / n_parcela
+    if valor_parcela <= 0.3*salario:
+        return "empréstimo aceito"
+    else:
+        return "empréstimo negado"
+
+
+valor_emprestimo = int(input("qual o valor do seu empréstimo ? : "))
+salario = int(input("qual o seu salário ? : "))
+n_parcela = int(input("sob quantas parcelas pretendes operar ? : "))
+
+print(emprestimo(n_parcela, salario, valor_emprestimo))
