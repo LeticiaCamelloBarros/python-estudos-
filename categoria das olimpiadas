@@ -1,0 +1,35 @@
+"""- Classificação de Atletas
+
+  Um programa deve receber a idade de um atleta e classificá-lo nas seguintes categorias:
+    •	Infantil: até 12 anos
+    •	Juvenil: 13 a 17 anos
+    •	Adulto: 18 a 39 anos
+    •	Master: 40 a 59 anos
+    •	Sênior: 60 anos ou mais
+
+  Desafio: Implementar essa classificação e verificar se a idade é válida (maior que 0)."""
+def idade_valida (variavel):
+    if idade < 1 : 
+        print("o atleta ainda não nasceu")
+    else : 
+        print("idade válida")
+
+def classificacao(variavel):
+    if variavel <= 12:
+        categoria = "Infantil"
+    elif 13 <= variavel <= 17:
+        categoria = "Juvenil"
+    elif 18 <= variavel <= 39:
+        categoria = "Adulto"
+    elif 40 <= variavel <= 59:
+        categoria = "Master"
+    elif variavel >= 60:
+        categoria = "Sênior"
+    return categoria
+
+
+idade = int(input("qual a sua idade ?"))
+nascido_or_not = idade_valida(idade)
+print(nascido_or_not)
+verif_idade = classificacao(idade)
+print(verif_idade)
