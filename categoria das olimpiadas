@@ -8,11 +8,14 @@
     •	Sênior: 60 anos ou mais
 
   Desafio: Implementar essa classificação e verificar se a idade é válida (maior que 0)."""
-def idade_valida (variavel):
-    if idade < 1 : 
-        print("o atleta ainda não nasceu")
-    else : 
-        print("idade válida")
+
+
+def idade_valida(variavel):
+    if idade < 1:
+        return "o atleta ainda não nasceu"
+    else:
+        return "idade válida"
+
 
 def classificacao(variavel):
     if variavel <= 12:
@@ -28,8 +31,7 @@ def classificacao(variavel):
     return categoria
 
 
-idade = int(input("qual a sua idade ?"))
-nascido_or_not = idade_valida(idade)
-print(nascido_or_not)
+idade = int(input("qual a sua idade ? : "))
+print(idade_valida(idade))
 verif_idade = classificacao(idade)
 print(verif_idade)
