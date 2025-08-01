@@ -22,7 +22,8 @@ while (valid_nome == False):
 valid_idade = False 
 while (valid_idade==False):
     idade = input("Insira uma idade : ")
-    if 0 > idade or idade > 150:
+    idade = int(idade)
+    if 0 > idade  > 150:
         print("idade invalida ")
     else : 
         valid_idade = True 
