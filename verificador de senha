@@ -1,0 +1,19 @@
+"""o código criado tem o objetivo de verificar se as duas senhas inseridas são iguais """
+state = False
+while state == False:
+    senha = input("ponha o seu número de telefone : ")
+    senha_confirm = input("confirme o seu número de telefone : ")
+    # colocamos as variáveis senha e senha_confirm dentro de {} para transformar cada elemento desse input em
+    # um elemento de um conjunto , agora senha e senh_confirm são conjuntos !! Transformamos essas duas variáveis
+    # em conjuntos podemos usar o operador ^ para verificar se existe partes de um conjunto que não seja inserido no outro , caso 
+    #  existam {senha} ^ {senha_confirm} será == set() caso não {senha} ^ {senha_confirm} será != set().
+    # o resultado de {senha} ^ {senha_confirm} será vazio quando as duas senhas forem iguais 
+    if {senha} ^ {senha_confirm} != set():
+        # print({senha} ^ {senha_confirm}) 
+        # faça a operação acima (comentada) para ver melhor o que está acontecendo por dentro do seu código 
+        print(f"{senha} é diferente de {senha_confirm}\nsenhas divergentes , digite-as de novo")
+    else:
+        # print({senha} ^ {senha_confirm})
+        # faça a operação acima (comentada) para ver melhor o que está acontecendo por dentro do seu código 
+        print("senha autenticada")
+        state = True
