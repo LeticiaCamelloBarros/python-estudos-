@@ -1,0 +1,33 @@
+
+"""You're helping a pet shop create a system to determine if they can sell a pet to a customer.
+
+initialize the following variables:
+
+has_license with the value True
+has_space with the value True
+has_experience with the value False
+Write the following logical expressions to determine if:
+
+can_sell_regular_pet: Customer needs EITHER a license OR experience, AND must have space
+can_sell_exotic_pet: Customer needs BOTH a license AND experience, AND must have space
+cannot_sell_any_pet: Customer has NO license AND NO experience, OR has NO space"""has_license = True
+has_space = True
+has_experience = False
+
+if ((has_license or has_experience) and has_space) == True:
+    can_sell_regular_pet = True
+else:
+    can_sell_regular_pet = False
+
+if (has_license and has_experience) and has_space:
+    can_sell_exotic_pet = True
+else:
+    can_sell_exotic_pet = False
+
+if not (has_license and has_experience) or not (has_space):
+    cannot_sell_any_pet = True
+else:
+    cannot_sell_any_pet = False
+
+print(f"can sell regular pet: {can_sell_regular_pet} \ncan sell exotic pet: {can_sell_exotic_pet}\ncannot sell any pet: {cannot_sell_any_pet}")
+ 
