@@ -4,7 +4,6 @@
 # The person has a license
 # The person has insurance
 # Your program should:
-
 # Read an integer age from the first line of input
 # Read a string has_license from the second line of input (either "true" or "false")
 # Read a string has_insurance from the third line of input (either "true" or "false")
