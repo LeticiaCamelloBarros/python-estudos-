@@ -1,0 +1,22 @@
+""" queremos imprimir um retangulo as medidas de cada lado : 
+dessa forma : 
+3 
+4 
+****
+****
+****
+"""
+# Get input for rows and columns
+rows = int(input())
+# linhas
+cols = int(input())
+# colunas
+linha_itens = []
+for i in range(cols):
+    linha_itens.append("*")
+linha = "".join(linha_itens)
+# ====== teste
+# print(linha_itens)
+# ===============
+for i in range(rows):
+    print(linha)
