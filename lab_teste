@@ -1,3 +1,22 @@
+"""
+Create a function named device_tester that receives device_name and power_levels as its parameters.
+
+The function simulates testing electrical devices in a mineral-rich laboratory environment. It performs analysis on the device name and its power levels during different testing phases.
+
+The function should perform the following tasks:
+
+Extract the first three characters of the device name and convert them to uppercase.
+Calculate the average power level of the device during the middle third of the testing phases.
+Determine if the device passed the test based on whether the average power level is above 75.
+Return a string that combines the extracted device name characters, the average power level (rounded to two decimal places), and a pass/fail status.
+Parameters:
+
+device_name (str): A string representing the name of the electrical device being tested.
+power_levels (list): A list of integers representing the power levels of the device during different testing phases.
+The function returns a string in the format: 'XXX:YY.YY:PASS' or 'XXX:YY.YY:FAIL', where XXX is the first three characters of the device name in uppercase, YY.YY is the average power level rounded to two decimal places, and PASS/FAIL indicates whether the device passed the test.
+"""
+
+
 def device_tester(device_name, power_levels):
     # ==== parte que poe os primeiros três caracteres em maiuscula :
     # aplicando a variável device_name
