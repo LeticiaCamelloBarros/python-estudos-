@@ -1,0 +1,13 @@
+"""Write a program that gets one input, a number. The input number indicates how many times to execute the below function. 
+
+Create a function that calculates the sum of all of the numbers between 1 and 10000 (including) and prints it, name the function however you like."""
+
+def som_1_to_10000 (number_of_times_var):
+    som = 0 
+    for i in range(1,10001):
+        som = som + i 
+    print(som)
+
+times = int(input())
+for i in range(times):
+    som_1_to_10000(times)
