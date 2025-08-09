@@ -16,6 +16,48 @@ power_levels (list): A list of integers representing the power levels of the dev
 The function returns a string in the format: 'XXX:YY.YY:PASS' or 'XXX:YY.YY:FAIL', where XXX is the first three characters of the device name in uppercase, YY.YY is the average power level rounded to two decimal places, and PASS/FAIL indicates whether the device passed the test.
 """
 
+#perceba que a questão pediu para você criar uma função com os seus parâmetros mas não pediu para você criar inputs nem printar o resultado da função . Nesse 
+# tipo de questão o próprio site uri faz isso para você , como diz na parte em negrito : "    "Importante! Você não precisa chamar a função, nós fazemos isso para você nos bastidores em desafios do tipo função."
+
+"""antes achava que a questão pedia a média da lista de inteiros mas depois percebi que terço médio não é a média , mas sim a média do meio de uma lista . È como 
+se repartissimos a nossa lista em 3 partes iguais e a parte do meio iremos pega-la e calcular a sua média . Veja a seguir o que é terço médio e como calcula-lo segundo a IA : 
+O que significa "terço médio" (middle third)?
+Quando a questão diz "Calcule o nível médio de potência do dispositivo durante o terço médio das fases de teste", ela não está pedindo:
+
+A média de todos os níveis de potência.
+A média dos valores que estão no meio da faixa de valores (por exemplo, entre o 33º e o 66º percentil dos valores de potência).
+Em vez disso, ela está pedindo para você considerar a lista power_levels como uma sequência ordenada de medições (como se fosse uma linha do tempo das fases de teste). Você deve dividir essa sequência conceitualmente em três partes (início, meio e fim) e, em seguida, pegar apenas a parte do meio para calcular a média.
+
+Isso é muito comum em análises de dados para focar no "comportamento principal" ou "estável" de um sistema, ignorando possíveis flutuações ou fases de aquecimento/resfriamento que poderiam ocorrer no início e no fim dos testes.
+
+Como Calcular o "Terço Médio" em Python?
+Para calcular o terço médio de uma lista, você precisa:
+
+Obter o comprimento total da lista: Vamos chamar isso de n. n = len(power_levels)
+
+Calcular o índice de início do terço médio: Este será o ponto onde o primeiro terço termina e o terço médio começa. Usamos a divisão inteira (//) para garantir que o índice seja um número inteiro, mesmo que n não seja divisível por 3. indice_inicio = n // 3
+
+Calcular o índice de fim do terço médio: Este será o ponto onde o terço médio termina e o último terço começa. indice_fim = 2 * (n // 3)
+
+Extrair a sub-lista correspondente ao terço médio: Usamos o slicing de listas do Python. Lembre-se que o slicing em Python ([inicio:fim]) inclui o inicio mas exclui o fim. terco_medio_lista = power_levels[indice_inicio : indice_fim]
+
+Exemplos Práticos para Ilustrar:
+Vamos ver como isso funciona com diferentes comprimentos de lista:
+
+Exemplo 1: Lista com comprimento divisível por 3 power_levels = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+
+n = 9
+indice_inicio = 9 // 3 = 3
+indice_fim = 2 * (9 // 3) = 2 * 3 = 6
+terco_medio_lista = power_levels[3:6]
+Resultado: [40, 50, 60]
+Média do terço médio: (40 + 50 + 60) / 3 = 50.0"""
+
+
+#outro detalhe também que eu esqueci é que a questão pede uma precisão de duas casas decimais 
+código : 
+
+
 
 def device_tester(device_name, power_levels):
     # ==== parte que poe os primeiros três caracteres em maiuscula :
@@ -32,31 +74,34 @@ def device_tester(device_name, power_levels):
     # print(novo_nome)
     # print("".join(novo_nome))
     # ========================================
-    # ===========================pegando os levels do device,vendo o level médio e dizendo se passou ou não :
-    # aplicando a variável power_levels
+    # ===========================pegando os levels do device para achar a lista de itens do terço médio e calcular
+    # a média do terço médio .
     lista_de_int = []
     for i in power_levels:
         i = int(i)
         lista_de_int.append(i)
+        # aqui acima transformamos os itens de power_lewes uma lista de string
+        # , em uma lista de inteiros e para fazer isso teremos que transferir esses itens para outra lista
+        # para guardar esses números como inteiros estamos usando a lista lista_de_int
+
         # ===== só para testar se realmente conseguimos pegar esses números na forma de inteiros
         # print(lista_de_int)
         # print(power_levels)
         # ======================================================================================
-        # vamos pegar a soma dos itens dessa variável power level para ver a média de power level
-    som = 0
-    for i in lista_de_int:
-        som = som + i
-        # ===== testando se a soma ocorreu direitinho
-        # print(som)
-        # ==========================================
-    operation_average = som / len(power_levels)
     # vamos ver agora qual o power level médio
-    if operation_average > 75:
-        print(f"{maiuscula}:{str(operation_average)}:PASS")
+    n = len(lista_de_int)
+    inicio_do_terco_medio = n // 3
+    fim_do_terco_medio = (n//3) * 2
+    operation_range = lista_de_int[inicio_do_terco_medio:fim_do_terco_medio]
+    if not operation_range:
+        # Define 0.0 se o terço médio for vazio (ex: lista muito curta)
+        average_power_level = 0.0
     else:
-        print(f"{maiuscula}:{str(operation_average)}:FAIL")
+        average_power_level = sum(operation_range)/len(operation_range)
+    format_media = "{:.2f}".format(average_power_level)
+    if average_power_level > 75:
+        print(f"{maiuscula}:{str(format_media)}:PASS")
+    else : 
+        print(f"{maiuscula}:{str(format_media)}:FAIL")
 
 
-device_name = input()
-power_levels = input().split()
-device_tester(device_name, power_levels)
