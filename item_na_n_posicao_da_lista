@@ -1,0 +1,19 @@
+"""o usuário irá duas entradas uma lista e a posição do item da lista que ele quer printar . E Vamos printar o item da lista que ele solicitar """
+
+
+
+
+stop = False
+while stop == False:
+    posicao = int(input("digite a posição que você quer que seja printada sabendo que ela o primeiro item da lista"
+                        "está na posição 1\n"))
+    lista = input(
+        "insira os itens da sua lista os separando por espaço\n").split(" ")
+    if posicao >= 1:
+        print(lista[posicao-1])
+        # queremos que a contagem da posição dos itens da nossa lista comecem por um para ser mais fácil do nosso
+        # usuário entende-la por isso vamos pedir para que ele considere o primeiro elemento como um e para isso ser posissivel , já que os index das listas começam em 0
+        # devemos subtrair um da posição que o usuário der
+        stop = True
+    else:
+        print("posição inválida,tente novamente")
