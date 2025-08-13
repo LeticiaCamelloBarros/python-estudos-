@@ -1,0 +1,33 @@
+"""Write a program that gets an integer n from input and outputs the nth even number starting from 0.
+
+Examples:
+
+Input: 1, Output: 0 (0 is the first even number)
+Input: 2, Output: 2 (2 is the second even number)
+Input: 100, Output: 198"""
+
+
+
+
+
+
+# Write code here
+number = int(input())
+lista_de_even = []
+count = 0 
+# vamos supor que tivessemos uma lista de tamanho infinito com os infinitos números inteiros 
+# se fossemos referenciar o enésimo número par seria dessa forma lista_de_infinitos[n-1]
+# então como não temos esta lista_de_infinitos para referencia-la bora usar um contador para guardar o valor dos números pares ( vamos atribuir a ele 
+# a soma + 2 ).
+# começa com 0 nossa contadora porque para o primeiro caso de ser rondado uma vez o número adicionado será zero 
+#  A referenciação começa dessa forma : você vai primeiro adicionar à lista de pares o número que pertence ao intervalo anterior 
+#  e logo em seguida vai adionar à contadora + 2 . 
+for i in range(number+1):
+# vamos fazer a ação abaixo number vezes (no ranger vai estar number+1 , porque o final é exclusivo). Nos intervalos quando não se explicita o começo se subentende
+# que ele será zero
+    lista_de_even.append(count)
+    # vai adicionar o contador anterior 
+    count+=2 
+# quando terminar o loop vamos referenciar o item com o index n - 1 . 
+print(lista_de_even[number-1])
+# vai ser menos 1 porque a contagem dos indices de uma lista começa em 0 e não em 1 e os inputs vão começar em 1 
