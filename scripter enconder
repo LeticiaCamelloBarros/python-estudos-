@@ -1,11 +1,33 @@
+import string
+
+
 def encodeScripture(script_line, target_base):
-    import string 
-        # vamos importar essa biblioteca para ter todos as letras do alfabeto de uma só vez 
-        # convertendo caractereres ASCII em números 
+    # vamos importar essa biblioteca para ter todos as letras do alfabeto de uma só vez
+    # convertendo caractereres ASCII em números
     lista_de_numeros = []
-    for carac in script_line :
+    for carac in script_line:
         lista_de_numeros.append(ord(carac))
-        # vamos agora começar a brincadeira das divisões 
-        # primeiro vamos fazer uma listinha com as letras possiveis 
-    lista_de_letras = list(string.ASCII_lowercase)
-    print(lista_de_letras)
+        # vamos agora começar a brincadeira das divisões
+        # primeiro vamos fazer uma listinha com as letras possiveis
+    lista_de_letras = list(string.ascii_uppercase)
+    # para listar as letras do alfabeto em minuscula basta fazer "  list(string.ascii_lowercase) " "
+    # o acesso à lista de letras do alfabeto em português se faz por meio da importação da biblioteca string :https://pt.stackoverflow.com/questions/80559/como-fazer-uma-range-com-letras-do-alfabeto-em-python
+    # print(lista_de_letras) printe para ver se está tudo certo com a sua lista
+    lista_de_conv = []
+    for numero in lista_de_numeros:
+        numero_conv = " "
+        # a variavel numero conv guarda o número convertido
+        while numero != 0:
+            resto_da_divisao = numero % target_base
+            if numero < 10:
+                numero_conv = numero_conv + str(resto_da_divisao)
+            else:
+                numero_conv += lista_de_letras[resto_da_divisao-10]
+                # vamos colocar o indice como resto da divisão - 10 , para que podermos chamar o primeiro item da lista de letras usando como input 10 . Tipo sendo o resto da divisão 10
+                # o item referenciado na lista_de_letras será o primerio  item de indice 0 .Assim 10 será A , 11 será B e etc...
+            divisao_resultado_int = numero // target_base
+            numero = divisao_resultado_int
+            # assim igualando numero ao divisao_resultado_int o nosso resultado da divisão inteira será o numero que dividiremos pelo target base na proxima inteiração do loop
+        lista_de_conv.append(numero_conv)
+        # vamos adicionar o número já convertido na base especifica
+    return lista_de_conv
