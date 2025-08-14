@@ -1,5 +1,11 @@
 def encodeScripture(script_line, target_base):
-    lista_de_caracteres = []
+    import string 
+        # vamos importar essa biblioteca para ter todos as letras do alfabeto de uma só vez 
+        # convertendo caractereres ASCII em números 
+    lista_de_numeros = []
     for carac in script_line :
-        lista_de_caracteres.append(ord(carac))
-    # convertendo caractereres ASCII em números 
+        lista_de_numeros.append(ord(carac))
+        # vamos agora começar a brincadeira das divisões 
+        # primeiro vamos fazer uma listinha com as letras possiveis 
+    lista_de_letras = list(string.ASCII_lowercase)
+    print(lista_de_letras)
