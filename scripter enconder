@@ -1,0 +1,5 @@
+def encodeScripture(script_line, target_base):
+    lista_de_caracteres = []
+    for carac in script_line :
+        lista_de_caracteres.append(ord(carac))
+    # convertendo caractereres ASCII em números 
