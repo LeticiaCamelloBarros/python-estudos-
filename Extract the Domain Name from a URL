@@ -1,0 +1,20 @@
+"""Write a function extract_domain(url) that takes a string url as input and returns the domain name (including the subdomain if present) without the http:// or https:// part. The function should be case-insensitive and handle both http:// and https:// URLs.
+
+Note: Assume the input URL is valid and contains either http:// or https://."""
+
+
+def extract_domain(url):  
+    if url.startswith("http://"):
+        novo_print = url[len("http://"):]
+    if url.startswith("https://"):
+        novo_print = url[len("https://"):]
+    # tirando https:// e http:// resta extrair os caminhos do arquivo 
+    for index_da_string in range(len(novo_print)):
+        # vamos agora pecorrer todos os index da string novo_print
+        if novo_print[index_da_string] == "/":
+            # se o caractere (caractere é dado por novo_print[index_da_string] da string for "/")
+            novo_print = novo_print[:index_da_string]
+            # a variavel novo_print vai ser igual a tudo que vem antes desse "/
+            break
+            # vamos dar um break para que assim que achar o primeiro "/" o percorrimento da string parar e não ficarmos com strings cada vez mais longas
+    print(novo_print.lower())
