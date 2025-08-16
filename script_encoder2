@@ -1,63 +1,47 @@
-# primeira versão : 
-import string 
-def encode_picnic_story(story, commands, base_string):
-    all_possible_digits_and_letters = string.digits + string.ascii_uppercase
-    # all_possible_digits_and_letters é uma lista que vai guardar a lista digits(com todos os digitos / algoritmos presentes na biblioteca string)
-    #  e em seguida vai guardar a lista ascii(também importada da biblioteca ascii,essa lista guarda todas as letras do alfabeto) na forma uppercase
-    # colocando a lista digits antes de uppercase , eu garanto que os numeros decimais venham antes de números 
-    def conversao (caracteres_dec,base,all_possible_digits_and_letters):
-        # essa função vai servir para converter os caracteres decimais na unidade desejada
-        if base_string == "hexadecimal":
-            base_num = 16 
-        elif base_string == "binary" :
-            base_num = 2 
-        elif base_string == "decimal":
-            base_num = 0 
-        elif base_string == "octal":
-            base_num = 8
-        # operação : 
-        encoded_values_for_each_char = []
-        for numero in caracteres_dec:
-            if numero == 0 : 
-               encoded_values_for_each_char.append("0")
-            else : 
-                    # --- INÍCIO DA MUDANÇA PARA INVERSÃO EXPLÍCITA ---
-                    # 1. Lista temporária para coletar os dígitos.
-                    # Eles serão adicionados na ordem em que são gerados (menos significativo para mais significativo).
-                    temp_digits_list = []
-                    current_number_to_convert = numero 
-                    while current_number_to_convert > 0 : 
-                        resto_da_div = current_number_to_convert % base_num 
-                        # Pega o caractere correspondente ao resto
-                        digit_or_letter_char = all_possible_digits_and_letters[resto_da_div]
-                          # 2. Adiciona o caractere ao FINAL da lista temporária.
-                         # Ex: para 42 (decimal) para base 16:
-                         # 1ª iteração: remainder=10 ('A'). temp_digits_list = ['A']
-                         # 2ª iteração: remainder=2 ('2'). temp_digits_list = ['A', '2']
-                        temp_digits_list.append(digit_or_letter_char)
-                        current_number_to_convert //= base_num
-                             # 3. AGORA, INVERTE A LISTA DE DÍGITOS.
-                         # Ex: ['A', '2'] se torna ['2', 'A']
-                        temp_digits_list.reverse() # Ou temp_digits_list[::-1] para criar uma nova lista invertida
-                        
-                        # 4. Junta os dígitos da lista invertida para formar a string final.
-                        # Ex: "".join(['2', 'A']) resulta em "2A"
-                        converted_base_string = "".join(temp_digits_list)
-                        # --- FIM DA MUDANÇA PARA INVERSÃO EXPLÍCITA ---
-        return "".join(encoded_values_for_each_char)
+"""Create a function named encode_picnic_story that receives story, commands, and base as its parameters.
 
-    for comando in commands : 
-      if comando == "reverse" :
-          story = story[::-1]
-      elif comando == "sort" : 
-          story = sorted(story)
-          # o comando sorted ele vai transformar a string story em uma lista story . Então se dermos um sort 
-          # e um comando de manipulação de string , como uppercase , não iremos conseguer fazer o uppercase 
-          "".join(story)
-          # por isso agora transformamos a lista de volta em string
-      elif comando == "uppercase" : 
-        story = story.upper()
-    caracteres_dec = []
-    for caractere in story : 
-      caracteres_dec.append(ord(caractere))
-    print(conversao(caracteres_dec,base_string,all_possible_digits_and_letters))
+This function aims to encode a given story using a sequence of text manipulation commands and convert it into a specified numeric base, creating a playful and cryptic representation of the story.
+
+The encoding process involves the following steps:
+
+Apply the provided commands to manipulate the story string. The available commands are:
+"reverse": Reverses the order of characters in the story.
+"uppercase": Converts all characters in the story to uppercase.
+"sort": Sorts the characters in the story in ascending order.
+Convert each character in the manipulated story to its corresponding ASCII code.
+Convert each ASCII code to the specified numeric base.
+Concatenate the converted values to form the final encoded story.
+The function should handle the following numeric bases:
+
+Binary (base 2)
+Octal (base 8)
+Decimal (base 10)
+Hexadecimal (base 16)
+Parameters:
+
+story (str): The original story text to be encoded.
+commands (list): A list of string commands to manipulate the story before encoding. Valid commands are "reverse", "uppercase", and "sort".
+base (str): The numeric base to convert the encoded story to. Valid bases are "binary", "octal", "decimal", and "hexadecimal".
+The function returns the encoded story as a string, where each character is represented by its converted value in the specified base, concatenated together"""
+#segunda versão : dada pelo coddy : 
+def encode_picnic_story(story, commands, base):
+    for command in commands:
+        if command == "reverse":
+            story = story[::-1]
+        elif command == "uppercase":
+            story = story.upper()
+        elif command == "sort":
+            story = ''.join(sorted(story))
+    
+    ascii_codes = [ord(char) for char in story]
+    
+    if base == "binary":
+        encoded_story = ''.join(bin(code)[2:].zfill(8) for code in ascii_codes)
+    elif base == "octal":
+        encoded_story = ''.join(oct(code)[2:] for code in ascii_codes)
+    elif base == "decimal":
+        encoded_story = ''.join(str(code) for code in ascii_codes)
+    elif base == "hexadecimal":
+        encoded_story = ''.join(hex(code)[2:].upper() for code in ascii_codes)
+    
+    return encoded_story
