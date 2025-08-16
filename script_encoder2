@@ -1,0 +1,63 @@
+# primeira versão : 
+import string 
+def encode_picnic_story(story, commands, base_string):
+    all_possible_digits_and_letters = string.digits + string.ascii_uppercase
+    # all_possible_digits_and_letters é uma lista que vai guardar a lista digits(com todos os digitos / algoritmos presentes na biblioteca string)
+    #  e em seguida vai guardar a lista ascii(também importada da biblioteca ascii,essa lista guarda todas as letras do alfabeto) na forma uppercase
+    # colocando a lista digits antes de uppercase , eu garanto que os numeros decimais venham antes de números 
+    def conversao (caracteres_dec,base,all_possible_digits_and_letters):
+        # essa função vai servir para converter os caracteres decimais na unidade desejada
+        if base_string == "hexadecimal":
+            base_num = 16 
+        elif base_string == "binary" :
+            base_num = 2 
+        elif base_string == "decimal":
+            base_num = 0 
+        elif base_string == "octal":
+            base_num = 8
+        # operação : 
+        encoded_values_for_each_char = []
+        for numero in caracteres_dec:
+            if numero == 0 : 
+               encoded_values_for_each_char.append("0")
+            else : 
+                    # --- INÍCIO DA MUDANÇA PARA INVERSÃO EXPLÍCITA ---
+                    # 1. Lista temporária para coletar os dígitos.
+                    # Eles serão adicionados na ordem em que são gerados (menos significativo para mais significativo).
+                    temp_digits_list = []
+                    current_number_to_convert = numero 
+                    while current_number_to_convert > 0 : 
+                        resto_da_div = current_number_to_convert % base_num 
+                        # Pega o caractere correspondente ao resto
+                        digit_or_letter_char = all_possible_digits_and_letters[resto_da_div]
+                          # 2. Adiciona o caractere ao FINAL da lista temporária.
+                         # Ex: para 42 (decimal) para base 16:
+                         # 1ª iteração: remainder=10 ('A'). temp_digits_list = ['A']
+                         # 2ª iteração: remainder=2 ('2'). temp_digits_list = ['A', '2']
+                        temp_digits_list.append(digit_or_letter_char)
+                        current_number_to_convert //= base_num
+                             # 3. AGORA, INVERTE A LISTA DE DÍGITOS.
+                         # Ex: ['A', '2'] se torna ['2', 'A']
+                        temp_digits_list.reverse() # Ou temp_digits_list[::-1] para criar uma nova lista invertida
+                        
+                        # 4. Junta os dígitos da lista invertida para formar a string final.
+                        # Ex: "".join(['2', 'A']) resulta em "2A"
+                        converted_base_string = "".join(temp_digits_list)
+                        # --- FIM DA MUDANÇA PARA INVERSÃO EXPLÍCITA ---
+        return "".join(encoded_values_for_each_char)
+
+    for comando in commands : 
+      if comando == "reverse" :
+          story = story[::-1]
+      elif comando == "sort" : 
+          story = sorted(story)
+          # o comando sorted ele vai transformar a string story em uma lista story . Então se dermos um sort 
+          # e um comando de manipulação de string , como uppercase , não iremos conseguer fazer o uppercase 
+          "".join(story)
+          # por isso agora transformamos a lista de volta em string
+      elif comando == "uppercase" : 
+        story = story.upper()
+    caracteres_dec = []
+    for caractere in story : 
+      caracteres_dec.append(ord(caractere))
+    print(conversao(caracteres_dec,base_string,all_possible_digits_and_letters))
