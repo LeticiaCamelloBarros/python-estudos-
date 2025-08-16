@@ -5,6 +5,7 @@ Note: Assume the input URL is valid and contains either http:// or https://."""
 
 def extract_domain(url):  
     if url.startswith("http://"):
+       # o método startswith serve para verificar se uma certa substring está no inicio de uma string
         novo_print = url[len("http://"):]
     if url.startswith("https://"):
         novo_print = url[len("https://"):]
