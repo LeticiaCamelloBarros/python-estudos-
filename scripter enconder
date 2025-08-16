@@ -1,81 +1,67 @@
-import string
-
-def encodeScripture_simpler_inversion(script_line, target_base):
-    """
-    Esta função codifica uma linha de um script de peça teatral (ou qualquer texto)
-    para uma representação em uma base numérica diferente.
-
-    Para cada caractere na 'script_line', ele é convertido para seu código ASCII (decimal)
-    e, em seguida, esse código ASCII é convertido para a 'target_base' especificada.
-    Os valores codificados de cada caractere são concatenados em uma única string,
-    separados por espaços.
-
-    O processo de conversão de um número decimal para uma base alvo segue os passos:
-    1. Inicializa-se uma lista vazia para coletar os dígitos da nova base.
-    2. Divide-se repetidamente o número decimal pela base alvo, registrando os restos.
-    3. Os restos são adicionados à lista.
-    4. Após o loop de divisão, a lista de dígitos é INVERTIDA.
-    5. Para bases maiores que 10 (até 36), as letras 'A' a 'Z' são usadas para
-       representar os dígitos 10 a 35, respectivamente.
-
-    Parâmetros:
-        script_line (str): A linha de texto a ser codificada.
-        target_base (int): A base numérica para a qual os códigos ASCII serão convertidos (de 2 a 36).
-
-    Retorna:
-        str: Uma string contendo os códigos ASCII de cada caractere da 'script_line',
-             convertidos para a 'target_base' e separados por espaços.
-    """
-    
+import string 
+def encode_picnic_story(story, commands, base_string):
     all_possible_digits_and_letters = string.digits + string.ascii_uppercase
+    # all_possible_digits_and_letters é uma lista que vai guardar a lista digits(com todos os digitos / algoritmos presentes na biblioteca string)
+    #  e em seguida vai guardar a lista ascii(também importada da biblioteca ascii,essa lista guarda todas as letras do alfabeto) na forma uppercase
+    # colocando a lista digits antes de uppercase , eu garanto que os numeros decimais venham antes de números 
+    def conversao(caracteres_dec,base_string,all_possible_digits_and_letters):
+        # essa função vai servir para converter os caracteres decimais na unidade desejada
+        if base_string == "hexadecimal":
+            base_num = 16 
+        elif base_string == "binary" :
+            base_num = 2 
+        elif base_string == "decimal":
+            base_num = 10
+        elif base_string == "octal":
+            base_num = 8
+        # operação : 
+        encoded_values_for_each_char = []
+        for numero in caracteres_dec:
+            if numero == 0 : 
+               encoded_values_for_each_char.append("0")
+               continue
+            else : 
+                    if base_num == 10:
+                        encoded_values_for_each_char.append(str(numero))
+                        continue # Pula para o próximo 'numero' na lista caracteres_dec
+                    # --- INÍCIO DA MUDANÇA PARA INVERSÃO EXPLÍCITA ---
+                    # 1. Lista temporária para coletar os dígitos.
+                    # Eles serão adicionados na ordem em que são gerados (menos significativo para mais significativo).
+                    current_number_to_convert = numero 
+                    temp_digits_list = []
+                    while current_number_to_convert > 0 : 
+                        resto_da_div = current_number_to_convert % base_num 
+                        # Pega o caractere correspondente ao resto
+                        digit_or_letter_char = all_possible_digits_and_letters[resto_da_div]
+                          # 2. Adiciona o caractere ao FINAL da lista temporária.
+                         # Ex: para 42 (decimal) para base 16:
+                         # 1ª iteração: remainder=10 ('A'). temp_digits_list = ['A']
+                         # 2ª iteração: remainder=2 ('2'). temp_digits_list = ['A', '2']
+                        temp_digits_list.append(digit_or_letter_char)
+                        current_number_to_convert //= base_num
+                         # 3. AGORA, INVERTE A LISTA DE DÍGITOS.
+                     # Ex: ['A', '2'] se torna ['2', 'A']                        
+                    # 4. Junta os dígitos da lista invertida para formar a string final.
+                    # Ex: "".join(['2', 'A']) resulta em "2A"
+                    converted_base_string = "".join(temp_digits_list[::-1])# Ou temp_digits_list.reverse() para criar uma nova lista invertida
+                    # --- FIM DA MUDANÇA PARA INVERSÃO EXPLÍCITA ---
+                    encoded_values_for_each_char.append(converted_base_string)
+        return "".join(encoded_values_for_each_char)
+
+    for comando in commands : 
+      if comando == "reverse" :
+          story = story[::-1]
+      elif comando == "sort" : 
+          story = sorted(story)
+          # o comando sorted ele vai transformar a string story em uma lista story . Então se dermos um sort 
+          # e um comando de manipulação de string , como uppercase , não iremos conseguer fazer o uppercase 
+          story = "".join(story)
+          # por isso agora transformamos a lista de volta em string
+      elif comando == "uppercase" : 
+        story = story.upper()
+    caracteres_dec = []
+    for caractere in story : 
+      caracteres_dec.append(ord(caractere))
+    return conversao(caracteres_dec,base_string,all_possible_digits_and_letters)
+   
     
-    encoded_values_for_each_char = []
-
-    for char_in_line in script_line:
-        decimal_ascii_value = ord(char_in_line)
-
-        # Caso especial: se o valor ASCII for 0, a representação é "0".
-        if decimal_ascii_value == 0:
-            encoded_values_for_each_char.append("0")
-            continue 
-
-        # --- INÍCIO DA MUDANÇA PARA INVERSÃO EXPLÍCITA ---
-        # 1. Lista temporária para coletar os dígitos.
-        # Eles serão adicionados na ordem em que são gerados (menos significativo para mais significativo).
-        temp_digits_list = [] 
-        
-        current_number_to_convert = decimal_ascii_value
-
-        while current_number_to_convert > 0:
-            remainder = current_number_to_convert % target_base
-            
-            # Pega o caractere correspondente ao resto
-            digit_or_letter_char = all_possible_digits_and_letters[remainder]
-            
-            # 2. Adiciona o caractere ao FINAL da lista temporária.
-            # Ex: para 42 (decimal) para base 16:
-            # 1ª iteração: remainder=10 ('A'). temp_digits_list = ['A']
-            # 2ª iteração: remainder=2 ('2'). temp_digits_list = ['A', '2']
-            temp_digits_list.append(digit_or_letter_char)
-            
-            current_number_to_convert //= target_base
-        
-        # 3. AGORA, INVERTE A LISTA DE DÍGITOS.
-        # Ex: ['A', '2'] se torna ['2', 'A']
-        temp_digits_list.reverse() # Ou temp_digits_list[::-1] para criar uma nova lista invertida
-        
-        # 4. Junta os dígitos da lista invertida para formar a string final.
-        # Ex: "".join(['2', 'A']) resulta em "2A"
-        converted_base_string = "".join(temp_digits_list)
-        # --- FIM DA MUDANÇA PARA INVERSÃO EXPLÍCITA ---
-        
-        encoded_values_for_each_char.append(converted_base_string)
-    
-    return " ".join(encoded_values_for_each_char)
-
-# --- Exemplo de Uso e Teste ---
-# Entrada do usuário
-script_line_input = input("Digite a linha do script: ")
-target_base_input = int(input("Digite a base alvo (2 a 36): "))
-
-print(encodeScripture_simpler_inversion(script_line_input, target_base_input))
