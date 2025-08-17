@@ -1,0 +1,9 @@
+def verif_if_is_string(lista):
+    if all(isinstance(item, str) for item in lista):
+        print("yeah")
+    else:
+        print("Not YeAh")
+
+
+verif_if_is_string([1, "@"])
+verif_if_is_string(["lele", "Python"])
