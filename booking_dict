@@ -1,8 +1,4 @@
 
-
-
-
-
 def display_menu ():
    
    print("""Contact Book Menu:
@@ -36,7 +32,18 @@ def view_contact (contact_book):
     #  print("Email: ",information["email"])
     #  print("Address: ",information["address"])
     # ou 
-       print("Name: ",name) 
-       print("Phone: ",contact_book[name]["phone"])
-       print("Email: ",contact_book[name]["email"])
-       print("Address: ",contact_book[name]["address"])
+       print("Name:",name) 
+       print("Phone:",contact_book[name]["phone"])
+       print("Email:",contact_book[name]["email"])
+       print("Address:",contact_book[name]["address"])
+
+def edit_contact (contact_book):
+       name = input()
+       if name  in contact_book: 
+            phone = input()
+            email = input()
+            address = input()
+            contact_book[name] = {"name":name,"phone":phone,"email":email,"address":address}
+            print("Contact updated successfully!")
+       else : 
+            print("Contact not found!")
