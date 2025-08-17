@@ -1,0 +1,44 @@
+"""Create a function named frequency_counter that takes a list data_list as an argument. The function should count the frequency of each item in the list and return a dictionary where the keys are the unique items from the list and the values are the counts of how many times each item appears.
+
+For example, if the input list is [1, 2, 2, 3, 3, 3, 4, 4, 4, 4], the function should return a dictionary like this:
+
+{1: 1, 2: 2, 3: 3, 4: 4}"""
+
+
+#minha solução : 
+  def frequency_counter(data_list):
+    frequency_counter_dict = {}
+    # vamos criar uma lista com os itens se estarem repetidos :
+    items = (set(data_list))
+    items = list(items )
+    if all(isinstance(item,str)for item in items) == True  : 
+        items = sorted(items)
+    else : 
+        items = (set(data_list))
+    # configurando data_list para set conseguiremos tirar os tipos repetidos já que o tipo set não permite 
+    # agora vamos percorrer essa lista com os itens sem estarem repetidos 
+    for item in items : 
+        count = 0 
+        for data in data_list : 
+            if data == item :
+                if data in frequency_counter_dict.keys():
+                    count += 1 
+                    frequency_counter_dict[data] = count
+                else : 
+                    count = 1
+                    frequency_counter_dict[data] = count      
+    return frequency_counter_dict
+# solução muitooo mais prática :
+  def frequency_counter(data_list):
+    # Create an empty dictionary to store the frequencies
+    frequency_dict = {}
+
+    # Loop through the list and update the frequencies
+    for item in data_list:
+        if item in frequency_dict:
+            frequency_dict[item] += 1
+        else:
+            frequency_dict[item] = 1
+
+    # Return the frequency dictionary
+    return frequency_dict
