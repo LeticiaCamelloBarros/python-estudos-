@@ -1,15 +1,8 @@
-# curso-_python_ferias
-minhas lições do curso python de férias 
+# o que vc precisa saber sobre esse repositório : 
 
-Queria saber  : 
+## explicação do problema : 
+* no comentário do commit
+* no comentário do próprio código
+* ou o problema não tem comentário por ser simples
 
-* a questão Nome_idade_EstadoCivil_Salario :
-  - outra resuluções 
-* a questao triangulo_classificacao :
-  - teria  outras resolucoes
-* a questao quadrado : 
-  -  teria outras resolucoes .
-* a questao primos
-  - teria outras resolucoes .
-* as questões de fribonarcci :
-  - outras formas de responder . 
+## se você está usando esse repositório para estudar comece dos arquivos mais antigos indo em direção aos mais novos 
