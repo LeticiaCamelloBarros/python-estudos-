@@ -2,26 +2,41 @@
 
 
 
+
 def display_menu ():
-    print("""
-Contact Book Menu:
+   
+   print("""Contact Book Menu:
 1. Add Contact
 2. View Contact
 3. Edit Contact
 4. Delete Contact
 5. List All Contacts
-6. Exit
-""")
+6. Exit""")
 def add_contact(contact_book):
     name = input()
     email = input()
     address = input()
     phone = input()
-    if name in contact_book.keys() : 
-      print("Contact already exists!")
-      return
+    if dict in contact_book.keys() : 
+       return"Contact already exists!"
     else : 
-      contact_book[name] = {"phone":phone,"email":email,"address":address}
-      print("Contact added successfully!")
-      return
+      contact_book[name] = {"Phone":phone,"Email":email,"address":address}
+      return"Contact added successfully!"
+      
 
+def view_contact (contact_book):
+    name = input()
+    if name not in contact_book.keys():
+       print("Contact not found!")
+    else : 
+        # a variável information vai guardar o acesso ao dicionário interno , que é o value do nome especificado pelo usuário
+       information  = contact_book[name]
+    #  print("Name: ",name) 
+    #  print("Phone: ",information["phone"])
+    #  print("Email: ",information["email"])
+    #  print("Address: ",information["address"])
+    # ou 
+       print("Name: ",name) 
+       print("Phone: ",contact_book[name]["phone"])
+       print("Email: ",contact_book[name]["email"])
+       print("Address: ",contact_book[name]["address"])
