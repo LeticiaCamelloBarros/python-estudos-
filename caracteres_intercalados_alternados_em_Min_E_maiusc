@@ -1,0 +1,10 @@
+"""Qual era o nome do método em Python que transforma letras maiúsculas em minúsculas e minúsculas em maiúsculas na mesma string?
+
+Por exemplo:
+
+texto = "AquI TeM umA StrinG"
+saída = "aQUi tEm UMa sTRINg"""
+
+string = "python É uma LINGUAGEM mágica"
+string.swapcase()
+# retorna: 'PYTHON é UMA linguagem MÁGICA'
