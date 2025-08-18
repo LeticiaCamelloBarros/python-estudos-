@@ -20,6 +20,6 @@ def fatorial(numero):
 
 numero = int(input())
 
-fatorial(numero)
+print(fatorial(numero))
 
-#agora vamos supor que você queirar criar uma lista e
+
