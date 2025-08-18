@@ -1,3 +1,8 @@
+      #obs : lembrando que essa questão  ela foi tirada de um site url ( como o beecrowd , o coddy , o mimo ) então temos que fazer cruamente o que a questão 
+#solicita sem mais nem menos , mas ao transferir esse  código para o vs code, para ele funcionar, faça as devidas alterações necessárias
+   
+
+
 """Create a function named encode_picnic_story that receives story, commands, and base as its parameters.
 
 This function aims to encode a given story using a sequence of text manipulation commands and convert it into a specified numeric base, creating a playful and cryptic representation of the story.
