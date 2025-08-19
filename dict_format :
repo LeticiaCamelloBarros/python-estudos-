@@ -1,0 +1,10 @@
+
+lanchonete = {"Salgado": 4.59897897897986969786876, "Lanche": 6.5,
+              "Suco": 3, "Refrigerante": 3.5, "Doce": 1}
+for item in lanchonete:
+    print("{0:21} {1:5.2f}".format(item, lanchonete[item]))
+    # essa parte "{0:20}" indica o espaço de distancia entre uma key e um value de um dicionário . Troque
+    # 20 por outros valores para ver o que acontece , spoiler : os números da value vão para frente 
+    # na parte "{1:6.2f}" :há a determinação de quantas casas decimais vai ter o os números float e a movimentação dos values . Mude 2f por
+    # por outro número f (7f,6f,5f..) para ver o que acontece, spoiler : vai aumentar a tolerância de casas decimais .Agora se você alterar o número que vem
+    # depois do ponto , vai parecer que não vai acontecer alguma coisa se os números compreenderem no intervalo 1 a 4 , a partir de 5 , todos os numeros começam à andar para frente
