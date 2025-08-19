@@ -119,4 +119,22 @@ def delete_contact (contact_book):
 
 
          #  key e value podem ser qualquer nomes ,contudo saiba que a variável  que veem antes da vírgula representam a key , e o que 
-         # vem depois representa o value . 
+         # vem depois representa o value .
+"""definição de dicionário interno e externo .
+ex : dictionary_book = {"Bob": {"phone": "234-567-8901", "email": "bob@example.com", "address": "456 Oak Ave"}, "Carol": {"phone": "345-678-9012", "email": "carol@example.com", "address": "789 Pine Rd"}}
+dictionary_book é um dicionário externo e atrelada à cada uma das suas keys  tem um value que é um dicionário interno ( um dicionário dentro de outro dicionário)
+"""
+def list_all_contacts(contact_book):
+    if not contact_book:
+        print( "No contacts available.")
+    else :  
+        for key_extern in contact_book:
+                print(f"Name: {key_extern}")
+                contact = contact_book[key_extern]
+         #   aqui em cima vamos capturar na variável contact o dicionário interno 
+                for key_intern ,value_intern in contact.items() :
+                     first_maiuscula = key_intern.replace(key_intern[0],key_intern[0].upper())
+                     # Acima manipulamos a substring referente à primeira letra de cada key do dicionário interno 
+                     print(f"{first_maiuscula}: {value_intern}")
+                print("                       ")
+
