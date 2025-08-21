@@ -5,10 +5,13 @@
 * no comentário do próprio código
 * ou o problema não tem comentário por ser simples
 
-## se você está usando esse repositório para estudar comece dos arquivos mais antigos indo em direção aos mais novos 
+## se você está usando esse repositório para estudar :
+* comece dos arquivos mais antigos indo em direção aos mais novos
+* tente ver os problemas , resolver e depois veja a resposta de cada um deles 
 
 
 ## questões tiradas do 
 * curso python que fiz nas férias
 * exercícios e desafios que eu criei na minha cabeça
 * coddy - url 
+
