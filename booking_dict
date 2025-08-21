@@ -1,29 +1,42 @@
-#obs : lembrando que essa questão  ela foi tirada de um site url ( como o beecrowd , o coddy , o mimo ) então temos que fazer cruamente o que a questão 
-solicita sem mais nem menos , mas ao transferir esse  código para o vs code, para ele funcionar, faça as devidas alterações necessárias 
 
-
-def display_menu ():
-   
-   print("""Contact Book Menu:
+def display_menu():
+     
+       print("""Contact Book Menu:
 1. Add Contact
 2. View Contact
 3. Edit Contact
 4. Delete Contact
 5. List All Contacts
 6. Exit""")
+
 def add_contact(contact_book):
+    #muito cuidado , como estamos numa url , a ordem das entradas importa e muitoooooo 
+    #no meu código tava trocando o email tava como telefone , o telefone como rua ... Pq urls colocam tudo na ordem literal que foi solicitada .
+    #então mesmo se eles solicitarem que o input venha com uma mensagem no console , a ia url não vai colocar os casos testes de acordo com a ordem que você 
+    #tá mandando mas sim a ordem solicitada na questão . Por exemplo se num problema de beecrowd ou coddy , pedirem para você colocar um input para receber o número de maças
+    # outro para o número de peras e outro para o de uvas , se você colocar em outra ordem (diferente na dita na questão) a entrada será a mesma não inporta o que esteja escrito 
+    # na mensagem do seu imput ( a ia das url não irão levar essa mensagem em conta ) ou no seu código . 
     name = input()
+    phone = input()
     email = input()
     address = input()
-    phone = input()
-    if dict in contact_book.keys() : 
-       return"Contact already exists!"
+    if name  in contact_book.keys() :
+        #@ 
+        #antes tava if dict in contact_book.keys() , mas não pode interar um dicionário usando dict , porque dict é um tipo python 
+        #Resultado de colocar o nome de um tipo como se fosse uma variável : 
+        #Esta condição if nunca será verdadeira. O programa nunca retornará "Contact already exists!" e sempre adicionará o contato, mesmo que o nome já exista, 
+        #sobrescrevendo o contato anterior sem aviso. Isso é uma falha grave na lógica de um livro de contatos."""
+         return"Contact already exists!"
     else : 
-      contact_book[name] = {"Phone":phone,"Email":email,"address":address}
-      return"Contact added successfully!"
-      
+         contact_book[name] = {"phone":phone,"email":email,"address":address}
+        #{"Phone":phone,...}:Por que não resolve : Você usou "Phone" e "Email" com a primeira letra maiúscula, mas "address" com a primeira letra minúscula.
+        #Dicionários em Python são case-sensitive para chaves.
+        #Consequência: Isso causará um KeyError (erro de chave não encontrada) em outras funções
+        #(como view_contact e edit_contact) que tentam acessar essas chaves com uma capitalização diferente (ex: information["phone"])
 
-def view_contact (contact_book):
+         return"Contact added successfully!"
+
+def view_contact(contact_book):
     name = input()
     if name not in contact_book.keys():
        print("Contact not found!")
@@ -58,68 +71,6 @@ def delete_contact (contact_book):
        print("Contact deleted successfully!")
     else : 
         print("Contact not found!")
-
-
-def display_menu ():
-   
-   print("""Contact Book Menu:
-1. Add Contact
-2. View Contact
-3. Edit Contact
-4. Delete Contact
-5. List All Contacts
-6. Exit""")
-def add_contact(contact_book):
-    name = input()
-    email = input()
-    address = input()
-    phone = input()
-    if dict in contact_book.keys() : 
-       return"Contact already exists!"
-    else : 
-      contact_book[name] = {"Phone":phone,"Email":email,"address":address}
-      return"Contact added successfully!"
-      
-
-def view_contact (contact_book):
-    name = input()
-    if name not in contact_book.keys():
-       print("Contact not found!")
-    else : 
-        # a variável information vai guardar o acesso ao dicionário interno , que é o value do nome especificado pelo usuário
-       information  = contact_book[name]
-    #  print("Name: ",name) 
-    #  print("Phone: ",information["phone"])
-    #  print("Email: ",information["email"])
-    #  print("Address: ",information["address"])
-    # ou 
-       print("Name:",name) 
-       print("Phone:",contact_book[name]["phone"])
-       print("Email:",contact_book[name]["email"])
-       print("Address:",contact_book[name]["address"])
-
-def edit_contact (contact_book):
-       name = input()
-       if name  in contact_book: 
-            phone = input()
-            email = input()
-            address = input()
-            contact_book[name] = {"name":name,"phone":phone,"email":email,"address":address}
-            print("Contact updated successfully!")
-       else : 
-            print("Contact not found!")
-
-def delete_contact (contact_book):
-    name = input()
-    if name in contact_book:
-       del  contact_book[name]
-       print("Contact deleted successfully!")
-    else : 
-        print("Contact not found!")
-
-
-         #  key e value podem ser qualquer nomes ,contudo saiba que a variável  que veem antes da vírgula representam a key , e o que 
-         # vem depois representa o value .
 """definição de dicionário interno e externo .
 ex : dictionary_book = {"Bob": {"phone": "234-567-8901", "email": "bob@example.com", "address": "456 Oak Ave"}, "Carol": {"phone": "345-678-9012", "email": "carol@example.com", "address": "789 Pine Rd"}}
 dictionary_book é um dicionário externo e atrelada à cada uma das suas keys  tem um value que é um dicionário interno ( um dicionário dentro de outro dicionário)
@@ -128,13 +79,39 @@ def list_all_contacts(contact_book):
     if not contact_book:
         print( "No contacts available.")
     else :  
-        for key_extern in contact_book:
-                print(f"Name: {key_extern}")
-                contact = contact_book[key_extern]
+        for name in contact_book:
+                print(f"Name: {name}")
+                contact = contact_book[name]
          #   aqui em cima vamos capturar na variável contact o dicionário interno 
-                for key_intern ,value_intern in contact.items() :
+                for key_intern , value_intern in contact.items():
+                #key_intern é uma variável que guarda a key do dicionário interno 
                      first_maiuscula = key_intern.replace(key_intern[0],key_intern[0].upper())
                      # Acima manipulamos a substring referente à primeira letra de cada key do dicionário interno 
                      print(f"{first_maiuscula}: {value_intern}")
-                print("                       ")
+                print()
+                     # use print() quando quiser printar espaços em branco 
+         #  key e value podem ser qualquer nomes ,contudo saiba que a variável  que veem antes da vírgula representam a key , e o que 
+         # vem depois representa o value . 
+# create a contact_book
+contact_book = {}
+# se você for deixar para criar o dicionário na função add_contact , para cada novo usuário cadasttrado será criado um novo dicionário contact_book
+
+while True : 
+             
+    display_menu()
+    action = int(input())
+    if action == 1 : 
+        print(add_contact(contact_book))
+    elif action == 2 : 
+        view_contact(contact_book)
+    elif action == 3 : 
+        edit_contact(contact_book)
+    elif action == 4 : 
+        delete_contact(contact_book)
+    elif action == 5 : 
+        list_all_contacts(contact_book)
+    elif action == 6 : 
+        break 
+    else : 
+        print("Invalid choice. Please try again.")
 
