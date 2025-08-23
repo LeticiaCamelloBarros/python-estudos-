@@ -1,0 +1,31 @@
+"""QUESTÃO 02 - (40 pontos - String e Função)
+Anastácia adora construir pipas para seus amigos. Pedro, que sabe disso, separou vários retalhos de bambus da fábrica de móveis de seu tio que seriam descartados para dar a Anastácia. Ao entregar os bambus à Anastácia, Pedro perguntou a ela qual era a maior pipa que poderia ser construída com aqueles retalhos de bambus. Anastácia, então, que não é muito boa em calcular, quer que você a ajude nesta tarefa. Cada pipa é construída com dois pedaços de bambus amarrados em forma de cruz, formando um rosano
+Onde x e y são os tamanhos dos dois bambus utilizados na construção da pipa.
+Entrada
+
+A entrada começa com um número inteiro N indicando a quantidade de pipas a serem construídas. Em seguida, haverá N linhas, cada uma contendo dois inteiros x e y, representando os tamanhos dos bambus utilizados para construir a pipa.
+Saída
+
+Para cada caso de teste, imprima a área da pipa, seguida da unidade "cm'". A area deve
+ser um valor inteiro, ou seja, desconsiderando a parte decimal. Ora = Str(area
+Desenvolva uma função chamada calcular_area_pipa que retorna a área da pipa calculada. Para cada caso de teste, utilize essa função para calcular e exibir o resultado."""
+
+#código : 
+N = int(input())
+
+
+def calcular_area(x, y):
+    # antes de calcular a área da pipa saiba que a área de um losangulo é calculada como
+    # a multiplicação da área de suas duas diagonais e divide esse resultado por 2 .
+    area = (x*y)//2
+    # vamos transformar o resultado da área em string
+    str_area = str(area) + " cm2"
+    print(str_area)
+
+
+for vezes in range(N):
+    x, y = input().split()
+    x = int(x)
+    y = int(y)
+    lista_de_resultados = []
+    calcular_area(x, y)
