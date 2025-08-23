@@ -1,0 +1,24 @@
+#vamos agora aprender a diferença entre os operadores "==" e "is" 
+#observe o seguinte código : 
+a = ["k", "l", "m"]
+b = ["k", "l", "m"]
+print("verificação a e b : ")
+print(a is b)
+print(a == b)
+c = ["m", "n", "o"]
+d = c
+print("verificação c e d : ")
+print(d is c)
+print(d == c)
+"""saída : 
+verificação a e b : 
+False 
+True 
+verificação c e d : 
+True 
+True 
+"""
+
+no código perceba que a afirmação de que uma variável x is uma variável y , só será verdadeira , quando o valor de uma dessas variáveis for atribuido ao valor da outra variável . 
+Mesmo que essas duas variáveis com valores iguais x is y só será verdadeira quando houver a atribuição de uma variável à outra . Já no caso da afirmação de que uma variável x == y 
+será verdadeira nos dois casos ; de atribuição e de valores iguais . 
