@@ -1,0 +1,69 @@
+#Assunto :
+# Set Methods
+# Here are even more essential set methods:
+# discard(element): Removes the specified element from the set if it exists. Does not raise an error if the element is not found.
+# my_set = {1, 2, 3}
+# my_set.discard(3)    # Removes 3 from the set
+# my_set.discard(4)    # No error, even though 4 is not in the set
+# print(my_set)
+# # Output: {1, 2}
+# pop(): Removes and returns an arbitrary element from the set. Raises a KeyError if the set is empty.
+# my_set = {1, 2, 3}
+# element = my_set.pop()  # Removes and returns an arbitrary element
+# print(element)
+# # Output: 1 (or another element, as it's arbitrary)
+# print(my_set)
+# # Output: {2, 3} (or a different set, depending on the popped element)
+# clear(): Removes all elements from the set, making it empty.
+# my_set = {1, 2, 3}
+# my_set.clear()       # Removes all elements
+# print(my_set)
+# # Output: set()
+
+# desafio :
+# Write a program that performs the following tasks:
+
+# Create a set called numbers containing the values 10, 20, 30, 40, 50.
+# Use the discard() method to remove 35 from the set.
+# Use the pop() method to remove an arbitrary element and store it in a variable called popped_element.
+# Use the clear() method to empty the set.
+# Print the following:
+# The set after using discard().
+# The value of popped_element.
+# The set after using clear().
+
+#solução : 
+numbers = {10,20,30,40,50,60}
+#==================usando o discard e aprendendo sobre ele================================
+numbers.discard(35)
+print(numbers)
+#usando discard , diferentemente do remove ,caso o número não esteja dentro do conjunto de itens do set especificado não dará um key error 
+#numbers.remove(35)
+#tesre com remove para ver o que acontece 
+# caso você peça para printar a ação de discard um número , seja ele ou não parte do conjunto de itens do set especificado a mensagem será none 
+#print(numbers.discard(30))
+#print(numbers.discard(35))
+#teste os dois casos acima para ver o que acontece 
+#============================================================================================
+
+#====================================usando pop e aprendendo sobre ele =======================
+value_popped = numbers.pop()
+print(value_popped)
+#o pop deixa a lista desordenada , veja isso pedindo para printar a lista inteira 
+#print(numbers)
+#coloque um argumento qualquer , pode ser uma string ou um número , mesmo que esse argumento seja parte do conjunto de itens do set especificado 
+#uma mensagem de erro aparecerá na saída 
+#print(numbers.pop(30))
+#print(numbers.pop(35))
+#veja a saída dos casos acima e aprenda mais sobre o método pop . 
+#=============================================================================================
+
+#====================================usando clear e aprendendo sobre ele ======================
+numbers.clear()
+print(numbers)
+#coloque um argumento qualquer , pode ser uma string ou um número , mesmo que esse argumento seja parte do conjunto de itens do set especificado 
+#uma mensagem de erro aparecerá na saída 
+# print(numbers.clear(8))
+#print(numbers.clear(10))
+#veja a saída dos casos acima e aprenda mais sobre o método clear 
+#=============================================================================================
