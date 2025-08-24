@@ -1,0 +1,7 @@
+ #obs : lembrando que essa questão  ela foi tirada de um site url ( como o beecrowd , o coddy , o mimo ) então temos que fazer cruamente o que a questão 
+solicita sem mais nem menos , mas ao transferir esse  código para o vs code, para ele funcionar, faça as devidas alterações necessárias
+
+def remove_duplicates(lista_especificada):
+   print(list(set(numbers)))
+   #vamos transformar numbers , uma lista , em set para tirar os repetidos , e depois vamos transformar esse set em lista de novo para 
+   # termos o colchete , lembrando que ao fazer isso ,os números que estavam aparecendo mais de uma vez , não voltam à aparecer mais de uma vez 
