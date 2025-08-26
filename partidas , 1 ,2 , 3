@@ -166,6 +166,7 @@ one_match_sorted =  sorted(one_match)
 total_of_players = set(all_lists_matches)
 # vamos criar um set para guardar os nomes de cada um dos jogadores de todas as listas sem repetir nomes . 
 numb_of_p = len(list(total_of_players))
+#a função len() pode ser aplicada também em sets 
 #transforme esse set em uma lista para que depois seja possivel aplicar a função len ()
 # # 5. Find players in Match 1 only
 only_match1 = []
@@ -179,3 +180,43 @@ print(f"Players in exactly two matches: {two_matches}"   )
 print(f"Players in only one match: {one_match_sorted}")
 print(f"Total unique players: {numb_of_p}")
 print(f"Players in Match 1 only: {only_match1_sorted}")
+
+#solução do coddy : 
+#desenhe diagramas de vens em seu caderno para entender melhor a operação com conjuntos dessa questão , ajuda demais . 
+match1 = eval(input())
+match2 = eval(input())
+match3 = eval(input())
+
+# 1. Find players who participated in all three matches
+players_in_all_matches = match1 & match2 & match3
+
+# 2. Find players who participated in exactly two matches
+players_in_two_matches = (
+    (match1 & match2) | (match1 & match3) | (match2 & match3)
+) - players_in_all_matches
+# a união da interseção entre os encontros das 3 partidas entre elas aos pares (1 com 2 , 2 com 3 , 3 com 1 ) - a interseção  entre os encontros das 3 partidas entre elas aos trios (3 com 2 com 1 ).OU seja , a união da interseção 
+# dos pares - a interseção dos três conjuntos . 
+
+# 3. Find players who participated in only one match
+players_in_one_match = (
+    (match1 - match2 - match3)
+    | (match2 - match1 - match3)
+    | (match3 - match1 - match2)
+)
+
+# 4. Count total unique players
+total_unique_players = len(match1 | match2 | match3)
+#sim o comprimento de uma lista é uma propriedade que pode ser aplicado tanto à listas quanto à sets 
+
+# 5. Find players in Match 1 only
+# players_in_match1_only = match1 - match2 - match3 
+#0u 
+players_in_match1_only = match1 - (match2 | match3) 
+
+
+# Print results in the specified format
+print("Players in all matches:", sorted(list(players_in_all_matches)))
+print("Players in exactly two matches:", sorted(list(players_in_two_matches)))
+print("Players in only one match:", sorted(list(players_in_one_match)))
+print("Total unique players:", total_unique_players)
+print("Players in Match 1 only:", sorted(list(players_in_match1_only)))
