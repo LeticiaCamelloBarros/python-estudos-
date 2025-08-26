@@ -7,7 +7,8 @@
 
 ## se você está usando esse repositório para estudar :
 * comece dos arquivos mais antigos indo em direção aos mais novos
-* tente ver os problemas , resolver e depois veja a resposta de cada um deles 
+* tente ver os problemas , resolver e depois veja a resposta de cada um deles
+* se for testar o funcionamento de resoluções de problemas de sites de url , adpte o problema , caso necessário , para ele funcionar também no vs code .
 
 
 ## questões tiradas do 
