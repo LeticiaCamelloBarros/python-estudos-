@@ -1,0 +1,181 @@
+
+
+
+# Challenge
+# Hard
+# In a competitive gaming tournament, players participate in different matches. Your task is to analyze player participation across three matches using Python sets.
+# You'll be given three sets of players:
+# match1: Players who participated in Match 1
+# match2: Players who participated in Match 2
+# match3: Players who participated in Match 3
+# Your task is to:
+# Find players who participated in all three matches
+# Identify players who participated in exactly two matches
+# Determine players who participated in only one match
+# Count the total number of unique players in the tournament
+# Find players who participated in Match 1 but not in Match 2 or Match 3
+# Print the results in the following format:
+# Use sorted(list(set_name)) to display players in alphabetical order
+# Print the exact output format shown in the example
+# Example Input:
+# {"Alice", "Bob", "Charlie", "Diana"}
+# {"Charlie", "Diana", "Eve", "Frank"}
+# {"Alice", "Diana", "Frank", "George"}
+# Example Output:
+# Players in all matches: ['Diana']
+# Players in exactly two matches: ['Alice', 'Charlie', 'Frank']
+# Players in only one match: ['Bob', 'Eve', 'George']
+# Total unique players: 7
+# Players in Match 1 only: ['Bob']
+
+#minha solução (sem usar teoria dos conjuntos ) : 
+# Read input for the three matches
+match1 = eval(input())
+match2 = eval(input())
+match3 = eval(input())
+list_match1 = list(match1)
+list_match2 = list(match2)
+list_match3 = list(match3)
+list_match1.extend(list_match2) 
+list_match1.extend(list_match3)
+all_lists_matches = list_match1
+# print(list_match1)
+#pronto list_match1 é uma lista com todos os setes únidos com repetição . Se fosse fazer apenas a união de sets os itens repetidos não 
+#seriam aceitos , por isso tive que criar variáveis para guardar a transformação desses sets em listas para depois unir essa lista usando append 
+# lembrnando que o retorno da ação extend num print é none . Por isso não podemos atribuir essa ação a uma variável e logo 
+# após pedir para printar essa variável . 
+#print(match1.extend(match3))
+#execute o print acima e veja o resultado 
+
+# 1. Find players who participated in all three matches
+all_matches = []
+for person in all_lists_matches: 
+    if all_lists_matches.count(person) == 3 : 
+            all_matches.append(person)
+if len(all_matches) >=1 : 
+    # vamos ter que colocar nossa transformação dentro de uma condicional de o comprimento da lista all_matches ser maior ou igual à 1 para que quando não tiver uma pessoa 
+    # aparecend  nas 3 partidas o print de all_matches não ser set()
+   all_matches = set(all_matches)
+# depois de colocar os itens que aparecem 3 vezes na lista all_matches , você vai pegar e transformar essa lista em set , para cada pessoa aparecer apenas uma vez , se não iria aparecer 3 vezes cada nome 
+ # depois de transformar em set para tirar os repetidos vamos transformar em list para ficar no formato especificado no output : 
+all_matches = list(all_matches)
+#depois de transformar em list vamos ordenar essa lista
+all_matches_sorted = sorted(all_matches)
+# # 2. Find players who participated in exactly two matches
+two_matches = []
+for person in all_lists_matches: 
+    if all_lists_matches.count(person) == 2 : 
+            two_matches.append(person)
+if len(two_matches) >= 1 : 
+    # vamos ter que colocar nossa transformação dentro de uma condicional de o comprimento da lista all_matches ser maior ou igual à 1 para que quando não tiver uma pessoa 
+    # aparecend  nas 3 partidas o print de all_matches não ser set()
+    two_matches = set(two_matches)
+    # vamos abaixo transformar esse set em lista para poder ordena-lo 
+    two_matches = list(two_matches)
+    #vamos abaixo ordenar os nomes para sair na ordem especificada no output 
+    two_matches.sort()
+
+# # 3. Find players who participated in only one match
+one_match = []
+for person in all_lists_matches: 
+    if all_lists_matches.count(person) == 1 : 
+        one_match.append(person)
+if len(one_match) >= 1 : 
+    one_match = set(one_match)
+# agora vamos abaixo transformar esse set de novo em lista para sair no formato requerido na questão . 
+one_match = list(one_match)
+#vamos abaixo ordenar os nomes para sair na ordem especificada no output :
+one_match_sorted =  sorted(one_match)
+# # 4. Count total unique players
+total_of_players = set(all_lists_matches)
+# vamos criar um set para guardar os nomes de cada um dos jogadores de todas as listas sem repetir nomes . 
+numb_of_p = len(list(total_of_players))
+#transforme esse set em uma lista para que depois seja possivel aplicar a função len ()
+# # 5. Find players in Match 1 only
+only_match1 = []
+for player in match1 : 
+    if player not  in match2 and player not in match3 : 
+        only_match1.append(player)
+only_match1_sorted = sorted(only_match1)
+# # Print results in the specified format
+print(f"Players in all matches: {all_matches_sorted}") 
+print(f"Players in exactly two matches: {two_matches}"   )
+print(f"Players in only one match: {one_match_sorted}")
+print(f"Total unique players: {numb_of_p}")
+print(f"Players in Match 1 only: {only_match1_sorted}")
+
+#resolução do coddy (usando teoria dos conjuntos ) :
+# Read input for the three matches
+match1 = eval(input())
+match2 = eval(input())
+match3 = eval(input())
+list_match1 = list(match1)
+list_match2 = list(match2)
+list_match3 = list(match3)
+list_match1.extend(list_match2) 
+list_match1.extend(list_match3)
+all_lists_matches = list_match1
+# print(list_match1)
+#pronto list_match1 é uma lista com todos os setes únidos com repetição . Se fosse fazer apenas a união de sets os itens repetidos não 
+#seriam aceitos , por isso tive que criar variáveis para guardar a transformação desses sets em listas para depois unir essa lista usando append 
+# lembrnando que o retorno da ação extend num print é none . Por isso não podemos atribuir essa ação a uma variável e logo 
+# após pedir para printar essa variável . 
+#print(match1.extend(match3))
+#execute o print acima e veja o resultado 
+
+# 1. Find players who participated in all three matches
+all_matches = []
+for person in all_lists_matches: 
+    if all_lists_matches.count(person) == 3 : 
+            all_matches.append(person)
+if len(all_matches) >=1 : 
+    # vamos ter que colocar nossa transformação dentro de uma condicional de o comprimento da lista all_matches ser maior ou igual à 1 para que quando não tiver uma pessoa 
+    # aparecend  nas 3 partidas o print de all_matches não ser set()
+   all_matches = set(all_matches)
+# depois de colocar os itens que aparecem 3 vezes na lista all_matches , você vai pegar e transformar essa lista em set , para cada pessoa aparecer apenas uma vez , se não iria aparecer 3 vezes cada nome 
+ # depois de transformar em set para tirar os repetidos vamos transformar em list para ficar no formato especificado no output : 
+all_matches = list(all_matches)
+#depois de transformar em list vamos ordenar essa lista
+all_matches_sorted = sorted(all_matches)
+# # 2. Find players who participated in exactly two matches
+two_matches = []
+for person in all_lists_matches: 
+    if all_lists_matches.count(person) == 2 : 
+            two_matches.append(person)
+if len(two_matches) >= 1 : 
+    # vamos ter que colocar nossa transformação dentro de uma condicional de o comprimento da lista all_matches ser maior ou igual à 1 para que quando não tiver uma pessoa 
+    # aparecend  nas 3 partidas o print de all_matches não ser set()
+    two_matches = set(two_matches)
+    # vamos abaixo transformar esse set em lista para poder ordena-lo 
+    two_matches = list(two_matches)
+    #vamos abaixo ordenar os nomes para sair na ordem especificada no output 
+    two_matches.sort()
+
+# # 3. Find players who participated in only one match
+one_match = []
+for person in all_lists_matches: 
+    if all_lists_matches.count(person) == 1 : 
+        one_match.append(person)
+if len(one_match) >= 1 : 
+    one_match = set(one_match)
+# agora vamos abaixo transformar esse set de novo em lista para sair no formato requerido na questão . 
+one_match = list(one_match)
+#vamos abaixo ordenar os nomes para sair na ordem especificada no output :
+one_match_sorted =  sorted(one_match)
+# # 4. Count total unique players
+total_of_players = set(all_lists_matches)
+# vamos criar um set para guardar os nomes de cada um dos jogadores de todas as listas sem repetir nomes . 
+numb_of_p = len(list(total_of_players))
+#transforme esse set em uma lista para que depois seja possivel aplicar a função len ()
+# # 5. Find players in Match 1 only
+only_match1 = []
+for player in match1 : 
+    if player not  in match2 and player not in match3 : 
+        only_match1.append(player)
+only_match1_sorted = sorted(only_match1)
+# # Print results in the specified format
+print(f"Players in all matches: {all_matches_sorted}") 
+print(f"Players in exactly two matches: {two_matches}"   )
+print(f"Players in only one match: {one_match_sorted}")
+print(f"Total unique players: {numb_of_p}")
+print(f"Players in Match 1 only: {only_match1_sorted}")
