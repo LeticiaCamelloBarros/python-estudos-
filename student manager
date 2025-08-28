@@ -8,13 +8,30 @@
 #veja o jeito de fazer cada parte da questão por meio do comentário desse commit . 
 student_records = {}
 
+student_records = {}
+set_grades = set()
+
 def add_student(name, age, courses):
     if name in student_records:
         print(f"Student '{name}' already exists.")
         return
-    student_records[name] = {"age": age, "grades": set(), "courses": set(courses)}
+    student_records[name] = {"age": age, "grades": set_grades, "courses": set(courses)}
     print(f"Student '{name}' added successfully.")
+
+def add_grade(name,grade):
+    if name in student_records.keys():
+         #outra forma de verificar se um nome está num dicionário é verificando se ele esta na lista de keys . 
+         set_grades.add(grade)
+         print(f"Grade {grade} added for student '{name}'.")
+    else : 
+        #nome não está na lista de keys , ou seja nome não está no dicionário . 
+        print(f"Student '{name}' not found.")
 
 add_student("Alice", 20, ["Math", "Physics"])
 add_student("Bob", 22, ["Biology", "Chemistry"])
+add_grade("Alice", 90)
+add_grade("Alice", 85)
+add_grade("Bob", 75)
+add_grade("Charlie", 80)  # Non-existent student
 print(student_records)
+
