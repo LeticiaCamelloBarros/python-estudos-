@@ -13,7 +13,6 @@ def add_student(name, age, courses):
         print(f"Student '{name}' already exists.")
         return
     student_records[name] = {"age": age, "grades":set(), "courses": set(courses)}
-    #vamos colocar a criação de um set vazio para as notas(grades) dentro da função add_student , para cada vez que for cadastrado um novo aluno um set seja criado para ele . 
     print(f"Student '{name}' added successfully.")
 
 def add_grade(name,grade):
@@ -29,23 +28,32 @@ def is_enrolled(name,course):
     if name not in student_records.keys():
         print(f"Student '{name}' not found.")
         return False 
-    else : 
+    elif name in student_records.keys():
         intern_dict = student_records[name]
-#vamos usar a variável intern dict para percorrer o dicionario interno 
     if  course in intern_dict["courses"]:
-        # para course dentro do value da key courses . Ou seja sendo course um item do nosso set que abriga os cursos 
         return True 
     else : 
         return False 
        
-
+def calculate_average_grade (name):
+    if name in student_records.keys():
+        if len(student_records[name]["grades"]) == 0 :
+            return "0"
+        else : 
+            soma_das_notas = 0
+            for grade in student_records[name]["grades"] :
+                soma_das_notas += grade 
+            media = soma_das_notas / (len(student_records[name]["grades"]))
+            return media 
+    else : 
+       print(f"Student '{name}' not found.")
+       return None 
 add_student("Alice", 20, ["Math", "Physics"])
 add_student("Bob", 22, ["Biology", "Chemistry"])
 add_grade("Alice", 90)
 add_grade("Alice", 85)
 add_grade("Bob", 75)
-add_grade("Charlie", 80)  # Non-existent student
-print(is_enrolled("Alice", "Math"))  # Should return True
-print(is_enrolled("Alice", "Biology"))  # Should return False
-print(is_enrolled("Bob", "Biology"))  # Should return True
-print(is_enrolled("Charlie", "Math"))  # Non-existent student, should print message and return False
+print(calculate_average_grade("Alice"))  # Should return 87.5
+print(calculate_average_grade("Bob"))  # Should return 75.0
+print(calculate_average_grade("Charlie"))  # Non-existent student, should print message and return None
+print(calculate_average_grade("Alice"))  # Should return 87.5 again
