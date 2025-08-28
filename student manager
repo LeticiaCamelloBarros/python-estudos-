@@ -7,25 +7,37 @@
 
 #veja o jeito de fazer cada parte da questão por meio do comentário desse commit . 
 student_records = {}
-
-student_records = {}
-set_grades = set()
-
 def add_student(name, age, courses):
+    
     if name in student_records:
         print(f"Student '{name}' already exists.")
         return
-    student_records[name] = {"age": age, "grades": set_grades, "courses": set(courses)}
+    student_records[name] = {"age": age, "grades":set(), "courses": set(courses)}
+    #vamos colocar a criação de um set vazio para as notas(grades) dentro da função add_student , para cada vez que for cadastrado um novo aluno um set seja criado para ele . 
     print(f"Student '{name}' added successfully.")
 
 def add_grade(name,grade):
     if name in student_records.keys():
          #outra forma de verificar se um nome está num dicionário é verificando se ele esta na lista de keys . 
-         set_grades.add(grade)
+         student_records[name]["grades"].add(grade)
          print(f"Grade {grade} added for student '{name}'.")
     else : 
         #nome não está na lista de keys , ou seja nome não está no dicionário . 
         print(f"Student '{name}' not found.")
+
+def is_enrolled(name,course):
+    if name not in student_records.keys():
+        print(f"Student '{name}' not found.")
+        return False 
+    else : 
+        intern_dict = student_records[name]
+#vamos usar a variável intern dict para percorrer o dicionario interno 
+    if  course in intern_dict["courses"]:
+        # para course dentro do value da key courses . Ou seja sendo course um item do nosso set que abriga os cursos 
+        return True 
+    else : 
+        return False 
+       
 
 add_student("Alice", 20, ["Math", "Physics"])
 add_student("Bob", 22, ["Biology", "Chemistry"])
@@ -33,5 +45,7 @@ add_grade("Alice", 90)
 add_grade("Alice", 85)
 add_grade("Bob", 75)
 add_grade("Charlie", 80)  # Non-existent student
-print(student_records)
-
+print(is_enrolled("Alice", "Math"))  # Should return True
+print(is_enrolled("Alice", "Biology"))  # Should return False
+print(is_enrolled("Bob", "Biology"))  # Should return True
+print(is_enrolled("Charlie", "Math"))  # Non-existent student, should print message and return False
