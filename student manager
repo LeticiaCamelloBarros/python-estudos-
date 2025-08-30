@@ -61,10 +61,25 @@ def list_students_by_course(course):
     
     return list_of_students_in_course
 
+def filter_top_students (ts) : 
+    #ts representa o threshold , porque threshould é muito dificil de escrever tava errando muito  na escrita ( uma hora botando de um jeito e outra de outro ) 
+    #e isso dava dando erro na saída do  meu código 
+    gratter_than_ts = []
+    #lista de notas  que são maiores que o thereshold 
+    for student in student_records : 
+        if calculate_average_grade(student) > ts : 
+            gratter_than_ts.append(student)
+    return gratter_than_ts
+
 add_student("Alice", 20, ["Math", "Physics"])
 add_student("Bob", 22, ["Math", "Biology"])
 add_student("Diana", 23, ["Chemistry", "Physics"])
-print(list_students_by_course("Math"))  # Should return ["Alice", "Bob"]
-print(list_students_by_course("Physics"))  # Should return ["Alice", "Diana"]
-print(list_students_by_course("Biology"))  # Should return ["Bob"]
-print(list_students_by_course("History"))  # Should return an empty list
+add_grade("Alice", 90)
+add_grade("Alice", 85)
+add_grade("Bob", 75)
+add_grade("Diana", 95)
+print(filter_top_students(80))  # Should return ["Alice", "Diana"]
+print(filter_top_students(90))  # Should return ["Diana"]
+print(filter_top_students(100))  # Should return an empty list
+            
+
