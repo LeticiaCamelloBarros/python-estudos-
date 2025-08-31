@@ -4,10 +4,20 @@ lado_2 = int(input("insira um dos lados (2/3 "))
 lado_3 = int(input("insira um dos lados (3/3) "))
 
 if lado_3 == lado_2 and lado_3 == lado_1:
+# se todos os lados forem iguais : escreva "triangulo é equilátero"
     print("o triangulo é equilátero")
-elif lado_2 != lado_3 and lado_2 != lado_1:
-    print("o triangulo é escaleno ")
-elif lado_1 != lado_2 and lado_1 != lado_3:
-    print("o triangulo é escaleno ")
+elif lado_2 != lado_3 and lado_2 != lado_1  and lado_1 == lado_3 :
+# lado_3 pode ser igual ao lado_1 , mesmo o lado_2 sendo diferente dos dois : escreva "triangulo é escaleno"
+   # se não colocar o caso teste de o lado_1 sendo igual ao lado_3 . Quando bater na condição o lado_2 sendo diferente dos dois outros lados , sendo esses lados iguais entre si ou não 
+   # obedecerá esse senão se e o caso de os três lados serem diferentes não será verificado . 
+   # o mesmo se aplica para as próximas condicionais senão se 
+    print("o triangulo é isoceles ")
+elif lado_1 != lado_2 and lado_1 != lado_3 and lado_2  == lado_3:
+     # lado_3 pode ser igual ao lado_2 , mesmo o lado_1 sendo diferente dos dois : escreva "triangulo é escaleno"
+    print("o triangulo é isoceles  ")
+elif lado_3 != lado_2 and lado_3 != lado_1 and lado_1 == lado_2  : 
+         # lado_1 pode ser igual ao lado_2 , mesmo o lado_3 sendo diferente dos dois : escreva "triangulo é escaleno"
+
+   print("o triangulo é isoceles") 
 else:
-    print("triangulo é isoceles")
+    print("triangulo é escaleno")
