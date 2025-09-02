@@ -1,3 +1,9 @@
+\\faça um programa que peça para o usuário escolher o número de números que o programa vai verificar 
+\\ e verifique e contabilize quais desses números são multiplos de dois e / ou multiplo de 3 . Números que forem divisíveis por 2 e por 3 , contabilizam nos dois 
+\\ e no final notifique a quantidade de multiplo de 2 e a quantidade  de múltiplos de 3  .
+
+
+
 programa {
   funcao inicio() {
     inteiro cont_mult3=0 , cont_mult_2=0 , numb , n_numeros_inseridos , vezes  
