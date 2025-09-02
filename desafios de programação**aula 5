@@ -1,0 +1,37 @@
+programa {
+  funcao inicio() {
+    real pontuacao_da_equipe , soma_pontuacoes=0,desafios_comp_equipe , desafios_comp_totais =0
+    logico  menos_um 
+    menos_um = falso 
+    enquanto(menos_um == falso)
+    {
+      escreva("qual a pontuação da sua equipe ? ")
+      leia(pontuacao_da_equipe)
+      escreva("quantos desafios sua equipe completou ? ")
+      leia(desafios_comp_equipe)
+      se ((desafios_comp_equipe == -1) ou (pontuacao_da_equipe == -1))
+          {
+            menos_um = verdadeiro
+            se (desafios_comp_equipe==-1)
+            {
+                soma_pontuacoes =soma_pontuacoes +  pontuacao_da_equipe  
+            }
+            senao se (pontuacao_da_equipe==-1)
+            {
+                desafios_comp_totais = desafios_comp_totais + desafios_comp_equipe
+            }
+          }
+      senao
+      {
+          desafios_comp_totais = desafios_comp_totais + desafios_comp_equipe
+          soma_pontuacoes = soma_pontuacoes + pontuacao_da_equipe
+      }
+
+    }
+
+    // fim do loop 
+    escreva("------------Resultado------","\n")
+    escreva("desafios concluidos do torneio : ",desafios_comp_totais,"\n")
+    escreva("quantidade de pontos de todas as equipes : ",soma_pontuacoes)
+  }
+}
