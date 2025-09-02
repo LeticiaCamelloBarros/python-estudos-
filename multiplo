@@ -1,0 +1,22 @@
+programa {
+  funcao inicio() {
+    inteiro cont_mult3=0 , cont_mult_2=0 , numb , n_numeros_inseridos , vezes  
+    escreva("insira a quantidade de números inseridos : ")
+    leia(n_numeros_inseridos)
+    vezes = 1 
+    enquanto(vezes<=n_numeros_inseridos){
+
+      vezes++
+      escreva("qual o número que você quer verificar ? : ")
+      leia(numb)
+      se (numb%3==0){
+        cont_mult3++
+      }se (numb%2==0){
+        cont_mult_2++
+      }
+      
+    }
+    escreva("múltiplos de 3 : ",cont_mult3,"\n")
+    escreva("múltiplos de 2 : ",cont_mult_2,"\n")
+  }
+}
