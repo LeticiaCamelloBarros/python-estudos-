@@ -1,0 +1,20 @@
+
+
+# my solution : 
+def house_of_lists(list_of_lists):
+  sum_less_than_50 = [lista for lista in list_of_lists if sum(lista) < 50  ]
+  # como ele quer filtrar as listas que tem a soma de seus elemementos dando menor que 50 
+  # temos que fazer com que eles sejam os item restante ,
+  # então vamos incluir na nossa lista de listas todas as listas que tem a soma menor que 50
+  less_than_5 = [number for lista in sum_less_than_50 for number in lista if number < 5]
+  # aqui em cima queremos adicionar uma elemento number à essa lista less_than_5
+  #sabendo que number está dentro de lista ( que está dentro da lista sum_less_than_50) apenas se ele obedecer a condicionar de ser menor que 5 
+  return less_than_5
+
+#chalenge : 
+Create a function named house_of_lists that takes a list of lists list_of_lists as an argument. Each inner list contains numbers. The function should use list comprehensions to perform the following operations:
+
+Filter out inner lists that have a sum greater than 50.
+From the remaining inner lists, extract numbers that are less than 5.
+Combine all extracted numbers into a single list.
+Return the combined list of numbers.
