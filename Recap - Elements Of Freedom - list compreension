@@ -1,0 +1,26 @@
+# chalenge : 
+#Create a function named elements_of_freedom that processes a list of string elements according to specific rules.
+#Your function should:
+#Filter out elements that have fewer than 5 characters
+#Convert the remaining elements to uppercase
+#Remove any duplicate elements
+#Return a list of the unique uppercase elements
+#Use list operations to efficiently process the data.
+#Example:
+#Input: ["apple", "banana", "cherry", "date", "apple", "banana", "grape", "fig"]
+#Output: ['APPLE', 'BANANA', 'CHERRY', 'GRAPE']
+
+#my solution : 
+def elements_of_freedom(elements):    
+    # Step 1: Filter elements with length >= 5
+         lenght_less_or_equal_to_5 = [element for element in elements if len(element)>=5]
+    # Step 2: Convert filtered elements to uppercase
+         upper_case_lenght_less_or_equal_to_5 = [element.upper() for element in lenght_less_or_equal_to_5]
+    # Step 3: Create a list of unique elements
+         unique_elements = []
+         for  elemento in upper_case_lenght_less_or_equal_to_5 :
+            if elemento not in unique_elements : 
+                unique_elements.append(elemento)
+
+    # Step 4: Return the final result
+         return unique_elements
