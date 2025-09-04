@@ -1,0 +1,32 @@
+
+# subject : 
+A recursive function is a function that calls itself to solve smaller instances of a problem. Each recursive call must bring the function closer to a base case, which stops the recursion.
+
+Example: Summing numbers from 1 to n:
+
+def sum_to_n(n):
+    if n == 0:  # Base case
+        return 0
+    return n + sum_to_n(n - 1)  # Recursive step
+
+print(sum_to_n(5))  # Output: 15
+
+# chalenge : 
+#Write a recursive function named count_down that takes
+# a positive integer n as an argument and prints each number from n down to 0.
+
+# solution of coddy : 
+#Recursive Step: It performs an action (printing the current number) and then calls itself with a modified input (a smaller number), moving closer to the base case.
+#This structure allows the function to "unwind" from the initial call, printing numbers one by one until it reaches zero.
+def count_down(n):
+    if n < 0:  # Base case
+        return
+        # o return sem nada serve para parar o funcionamento da função , sem ele , iríamos parar num loop infinito 
+        # nesse print , escrevemos no console o valor de n , na chamada atual da função .
+    else : 
+          print(n)
+          # colocamos print ao invés de return para não parar o funcionamento da função no primeiro número , já que return sai da função e/ou mostra um resultado .    
+          count_down(n - 1)  # Recursive step
+          # nessa chamada acima , fazemos com que a função seja ativada novamente e só pare de ser ativada quando n < 0 , ou seja , quando n for igual a 0 zero vai ser printado e será chamado 
+          # o número que vem logo atrás dele que é -1 e como -1 é menor que 0 , o return será ativado e saíramos da função . 
+          
