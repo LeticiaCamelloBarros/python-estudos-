@@ -1,0 +1,72 @@
+# subject : 
+#Lambda functions are incredibly useful with the sorted() function to customize sorting in different scenarios. Here are a few examples:
+
+# Sorting Strings by Length:
+
+# names = ["Alice", "Bob", "Charlie", "Diana"]
+# sorted_names = sorted(names, key=lambda x: len(x))
+# print(sorted_names)
+# # Output: ['Bob', 'Alice', 'Diana', 'Charlie']
+
+# Sorting Dictionaries by Values:
+
+# grades = {"Alice": 85, "Bob": 90, "Charlie": 78}
+# sorted_grades = sorted(grades.items(), key=lambda x: x[1])
+# print(sorted_grades)
+# # Output: [('Charlie', 78), ('Alice', 85), ('Bob', 90)]
+
+# Sorting Dictionaries by keys :
+
+grades = {"Alice": 85, "Bob": 90, "Charlie": 78}
+sorted_grades = sorted(grades.items(), key=lambda x: x[0])
+print(sorted_grades)
+# Output: [('Alice', 85), ('Bob', 90), ('Charlie', 78)]
+
+# obs ao colocar o indice de x como 0 e 1 para indicar que é uma key e um value , respectivamente , estamos percorrendo uma tupla da lista de tuplas grades.items()
+# e referenciando o primeiro item , de indice 0 , que é a key ou o segundo item , de indice 1 , que é a key 
+# printe no console grades.items() para observar essa lista de tuplas melhor . 
+
+# Mas lembrando , na prática , dicionário não são ordenáveis , podemos ordenar apenas a sua lista de itens e depois chamar ela para criar um novo dicionário sendo que ordenado , usando 
+
+# vou demonstrar agora como fazer para formatar a ordenação de um dicionário :
+grades = {"Julia": 85, "Bob": 90, "Charlie": 78}
+sorted_grades = sorted(grades.items(), key=lambda x: x[1])
+for nome_qualquer_para_representar_a_key ,nome_qualquer_para_representar_o_value in sorted_grades:
+      print("nome",nome_qualquer_para_representar_a_key,"\nidade",nome_qualquer_para_representar_o_value,"\n")
+
+#saída :    
+nome Charlie 
+idade 78 
+
+nome Julia 
+idade 85 
+
+nome Bob 
+idade 90
+
+# Sorting Numbers by Absolute Value:
+
+# numbers = [-10, 15, -20, 25]
+# sorted_numbers = sorted(numbers, key=lambda x: abs(x))
+# print(sorted_numbers)
+# # Output: [-10, 15, -20, 25]
+# Sorting Tuples by Multiple Criteria:
+
+# data = [("Alice", 25), ("Bob", 30), ("Charlie", 25)]
+# sorted_data = sorted(data, key=lambda x: (x[1], x[0]))
+# print(sorted_data)
+# # Output: [('Alice', 25), ('Charlie', 25), ('Bob', 30)]
+
+# chalenge :
+Create a function named sort_tuples that takes a list of tuples data as an argument.
+#Each tuple in data contains two elements: a string and a number. 
+#The function should use the sorted() function along with a lambda function to sort the list of tuples based on the second element (the number) in ascending order.
+#The function should return the sorted list of tuples.
+
+
+# obs : minha solução parece muito com o obs que explica como funciona o ordenamento de dicionários pela função lambda . 
+# my solution 
+def sort_tuples(data):
+    sorted_data = sorted(data,key=lambda x : x[1])
+    return sorted_data
+
