@@ -1,0 +1,51 @@
+#subject : 
+The Try and Except Block
+
+The try-except block in Python allows you to handle exceptions and prevent your program from crashing. Code that might raise an exception is placed inside the try block, and the except block handles the error if it occurs.
+
+Here’s the basic structure:
+
+try:
+    # Code that might cause an exception
+    risky_code()
+except ExceptionType:
+    # Code to handle the exception
+    handle_error()
+Example:
+
+try:
+    num = int("abc")  # This raises a ValueError
+except ValueError:
+    print("Invalid input! Please enter a number.")
+Output:
+
+Invalid input! Please enter a number.
+In this example, instead of crashing, the program catches the ValueError and prints a friendly message. Use try-except to handle specific exceptions and keep your program running smoothly.
+
+# chalenge : 
+Write a program that prompts the user to enter a number. Use a try-except block to handle cases where the input is not a valid integer.
+
+If the user enters a valid integer, print "You entered: <number>".
+If the user enters an invalid value (e.g., a string or special character), catch the exception and print "Invalid input! Please enter a valid number.".
+# my solution : 
+# Write code here
+try : 
+    num = int(input())
+    print("You entered:",num)
+except ValueError : 
+    print("Invalid input! Please enter a valid number.")
+# print("You entered:",num)
+# por enquanto não coloque a nossa ação ou mensagem a ser feita caso o código ocorra sem erro , fora do try , porque , senão , caso entre no caso 
+# da exceção , depois de ser exebida a mensagem de erro da excessão , essa mensagem será mostrada também , já que ela está fora do try . E assim como o caso do try nunca foi realizado , ou seja , não conseguimos 
+# atribuir um valor à variável num , aparecerá na saída a mensagem de erro de que a variável num ainda não foi definida . 
+#
+
+#esse caso não é um type erro , porque o tipo está correto para o uso da função int(), ou seja int() sabe lidar com objetos do tipo string , contudo era esperado a literal de um valor númerico e isso não foi dado , gerando value error . 
+# value error  ocorre quando se esperado uma faixa de objetos especificos (como números) ou apenas um ou mais objetos especificados . 
+# como no caso : 
+# >>> numbers = [10, 20, 30]
+# >>> print(numbers.index(120))
+# ValueError: 120 is not in list
+# no caso acima os únicos valores que não iriam gerar valueerror são 10,20,30.
+# TypeError: Ocorre quando o tipo de dado em si é incompatível com a operação que está sendo tentada. É um problema de "formato" fundamental.
+# ValueError: Ocorre quando o tipo de dado está correto, mas o conteúdo ou valor desse dado não é apropriado ou válido para a operação específica. É um problema de "conteúdo" dentro do formato esperado.
