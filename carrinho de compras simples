@@ -1,0 +1,17 @@
+lista = ["bread:2", "eggs:10", "bread:6"]
+lista_dict = {}
+for item in lista:
+    limite = item.index(":")
+    # aqui abaixo vamos separar o nome do valor :
+    # primeiro vamos guardar o nome numa variável chamada item_nome
+    item_nome = item[:limite]
+    # depois vamos guardar o valor atrelado ao nome numa variável chamada  item_valor :
+    item_valor = item[limite+1:]
+    item_valor = int(item_valor)
+    if item_nome in lista_dict:
+# caso o item já estiver no dicionário vamos adicionar os itens novos à sua quantidade . ( Como se fosse um carrinho de compras , se eu inicialmente havia pego 4 maças , ao pegar mais duas maças
+# agora eu teenho 6 maças . 
+        lista_dict[item_nome] += item_valor
+    else:
+        lista_dict[item_nome] = item_valor
+print(lista_dict)
