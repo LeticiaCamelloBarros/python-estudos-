@@ -1,0 +1,51 @@
+#Challenge
+Create a program that simulates a shopping cart with error handling. Your task is to:
+Create a function called handle_shopping_cart that processes customer orders
+The function should accept a list of order strings in the format "item:quantity"
+Process each order by:
+Splitting the input string to get the item and quantity
+Converting the quantity to an integer
+Adding the item to a shopping cart dictionary with the quantity as value
+If an item already exists in the cart, update its quantity
+Handle these specific errors:
+If the input format is incorrect (missing colon), print "Invalid format: {order}"
+If the quantity is not a valid number, print "Invalid quantity: {order}"
+If the quantity is negative, print "Negative quantity not allowed: {order}"
+Return the completed shopping cart dictionary
+
+# my solution : 
+def handle_shopping_cart(orders):
+    # Create an empty dictionary for the shopping cart
+    dict_item_valor = {}
+
+    # Process each order in the list
+    for item in orders:
+            try:
+                if ":" not in item  : 
+                    # if colon not in item 
+                    print(f"Invalid format: {item}")
+                    continue 
+                    # o continue serve para ignorar essa passada do loop 
+                limite = item.index(":")
+                # aqui abaixo vamos separar o nome do valor :
+                # primeiro vamos guardar o nome numa variável chamada item_nome
+                item_nome = item[:limite]
+                # depois vamos guardar o valor atrelado ao nome numa variável chamada  item_valor :
+                item_valor = item[limite+1:]
+                item_valor = int(item_valor)
+                if item_valor < 0 : 
+                    print(f"Negative quantity not allowed: {item}")
+                    continue 
+                # Split the order and add to cart
+                if item_nome in dict_item_valor : 
+                    dict_item_valor[item_nome] += item_valor
+                else : 
+                    dict_item_valor[item_nome] = item_valor                
+            except ValueError:
+                print(f"Invalid quantity: {item}")     
+                continue 
+            except Exception as e : 
+                print(f"Unexpected error: {e}")    
+                continue       
+    return dict_item_valor
+        # Return the completed cart
