@@ -5,18 +5,26 @@
 # the descriptions of every part of the resolution of this actibity will be on the commit´s remarks of the activity . 
 
 inventory = {}
+
 def add_item (item,price,stock):
-    price_stock = {}
-    price_stock["price"] = price
-    price_stock["stock"] = stock 
     if item in inventory : 
         print(f"Error: Item '{item}' already exists.")
     else : 
-        inventory[item] = price_stock
+        inventory[item] = {"price":float(price),"stock":int(stock)}
         print(f"Item '{item}' added successfully.")
 
-add_item("Apple", 0.5, 100)
-add_item("Banana", 0.2, 50)
-add_item("Apple", 0.6, 30)  # Should print an error
-print(inventory)  
+def update_stock (item,quantity):
+    if item in inventory :
+        new_stock = inventory[item]["stock"] + int(quantity)
+        if new_stock < 0 : 
+            print(f"Error: Insufficient stock for '{item}'.")
+        else : 
+            # aqui vamos acessar no item "item" do dicionário inventário o item stock do dicionário que é value da key item do dicionário inventário 
+            print(f"Stock for '{item}' updated successfully.")
+            inventory[item]["stock"] = new_stock
+    else : 
+        print(f"Error: Item '{item}' not found.")
+        
+
+
 
