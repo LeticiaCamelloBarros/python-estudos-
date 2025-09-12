@@ -12,7 +12,6 @@ def add_item (item,price,stock):
     else : 
         inventory[item] = {"price":float(price),"stock":int(stock)}
         print(f"Item '{item}' added successfully.")
-
 def update_stock (item,quantity):
     if item in inventory :
         new_stock = inventory[item]["stock"] + int(quantity)
@@ -30,7 +29,34 @@ def check_availability(item):
          return inventory[item]["stock"]
     else : 
          return "Item not found" 
-        
+
+def sales_report(sales):
+    # sales is a dictionary where : keys are item´s name e values are quantity sold 
+    total_revenue = 0 
+    for item in sales.keys():
+        # aqui estamos percorrendo as listas de  chaves do dicionário sales 
+        if item in inventory.keys():
+          # aqui verifica se o item também existe na lista de chaves do dicionário inventory , ou seja , verifica se o item está no inventorio 
+           if inventory[item]["stock"] <= 0 : 
+           # se o estoque for insuficiente 
+              print("Error: Insufficient stock for '{item}'.")
+           else : 
+               total_revenue += (inventory[item]["price"])*(sales[item])
+               #Calculates revenue based on price and quantity sold
+               # now update the dictionary´s old values to the new one´s by reducing the before quantity of stock of certain item of the old quantity 
+               inventory[item]["stock"]  = (inventory[item]["stock"]) - (sales[item])
+               # in order to do this update you need to reassign the value of the dictionary inventory of the loops round´s item and  to  
+               # (the older value of the especied item of the inventory dicionary ) minus ( the sales dicionary value ). In other words : 
+               # we are going to replace the older stock value to the new stock value ( == the old stock value - the quantity sold)
+        else : 
+            print(f"Error: Item '{item}' not found.")
+    return f"Total revenue: ${total_revenue:.2f}"
+
+add_item("Apple", 0.5, 50)
+add_item("Banana", 0.2, 60)
+sales = {"Apple": 30, "Banana": 20, "Orange": 10}  # Orange should print an error
+print(sales_report(sales))  # Should output: 19.0
+print(inventory)
 
 
 
