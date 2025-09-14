@@ -1,0 +1,17 @@
+# chalenge : 
+Create function named process_numbers that takes a list of numbers and processes them according to specific rules.
+
+Requirements:
+
+First filter out all negative numbers and zero
+Then for the remaining positive numbers:
+Double even numbers
+Triple odd numbers
+Use map() and filter() to solve the problem.
+
+#my solution : 
+def process_numbers(numbers):
+   not_neg = filter(lambda x : x > 0 , numbers)    
+   double_triple = map(lambda x:  x*2 if x % 2 == 0 else x*3, not_neg)
+   processed_numbers = double_triple
+   return list(processed_numbers)
