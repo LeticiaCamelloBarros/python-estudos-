@@ -1,0 +1,19 @@
+import os
+os.system("cls")
+
+
+def clean_email_list(emails):
+    # Strip and lowercase all emails
+    cleaned = map(lambda x: x.strip().lower(), emails)
+    # filter out the emails that has more than 1 "@" icon
+    cleaned = filter(lambda x: x.count("@") == 1, emails)
+
+    for Email in cleaned:
+        list_of_substr = Email.split("@")
+        print(list_of_substr)
+
+
+email1 = ["Test@EXAMPLE.com",  "invalid.email",
+          " user@domain@.com",   "space@email.com",  "valid@domain.com"]
+print("#"*30, "list of emails one", "#"*30)
+clean_email_list(email1)
