@@ -3,9 +3,15 @@ os.system("cls")
 
 
 def clean_email_list(emails):
+    # in case the emails list is an empty list , the answer of the call of emails must be the empty list itself
+    if len(emails) == 0:
+        print(emails)
+        # in that case (of empty list) you must put one return in the end after printing emails . Otherwise , after the action of the
+        # condicion is ended the other actions bellow (and out of the condicion) will be accomplished too and we dont want that .
+        return
     # Strip and lowercase all emails
     cleaned = map(lambda x: x.strip().lower(), emails)
-    # filter out the emails that has more than 1 "@" icon
+    # filter out the emails that has more than 1 "@" icon or no "@" icon
     cleaned = filter(lambda x: x.count("@") == 1, emails)
 
     for Email in cleaned:
@@ -13,7 +19,21 @@ def clean_email_list(emails):
         print(list_of_substr)
 
 
+
+#test cases 
 email1 = ["Test@EXAMPLE.com",  "invalid.email",
           " user@domain@.com",   "space@email.com",  "valid@domain.com"]
 print("#"*30, "list of emails one", "#"*30)
 clean_email_list(email1)
+
+email2 = ["user1@domain.com",  "user2@domain.com"]
+print("#"*30, "list of emails two", "#"*30)
+clean_email_list(email2)
+
+email3 = ["@nodomain.com",  "noat",  "multiple@@ats.com"]
+print("#"*30, "list of emails tree", "#"*30)
+clean_email_list(email3)
+
+email4 = []
+print("#"*30, "list of emails four", "#"*30)
+clean_email_list(email4)
