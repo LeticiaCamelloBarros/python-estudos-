@@ -1,0 +1,5 @@
+# problem in the comit 
+
+nums1 = eval(input())  # Don't change this line
+nums2 = eval(input())  # Don't change this line
+total_nums = [ (x1*x2) for x1 in nums1 for x2 in nums2 ]
