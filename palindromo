@@ -1,0 +1,11 @@
+# problem : 
+Given a list of strings words, calculate a new list where only the first letter of each word is stored if the word is palindrome.
+
+Store the new list in a variable named new_words.
+
+A palindrome is a string that remains the same even when read backwards, for example "php".
+
+# my solution : 
+words = eval(input())  # Don't change this line
+new_words = [x[0] for x in words if x == x[::-1]]
+
