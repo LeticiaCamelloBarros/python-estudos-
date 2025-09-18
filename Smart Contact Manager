@@ -1,49 +1,36 @@
-#     Create a function named organize_contacts that processes a list of contact dictionaries to create a clean contact database.
-
-# Each contact dictionary in the input list has these keys:
-
-# name: The person's name
-# email: The person's email address
-# phone: The person's phone number
-# Your function should:
-
-# Remove duplicate contacts (contacts with the same email or phone number)
-# Standardize all emails to lowercase
-# Filter out contacts with invalid email addresses
-# Filter out contacts with invalid phone numbers
-# Return a list of cleaned contact dictionaries
-# Validation rules:
-
-# Valid email: Must contain '@' and '.', and must not have spaces
-# Valid phone: Must contain exactly 10 digits (ignore non-digit characters like dashes or parentheses)
-# For cleaning phone numbers, you should use Python's str.isdigit() method to extract only the numeric digits from phone numbers. 
-This method returns True if a character is a digit (0-9) and False otherwise, making it perfect for filtering out non-digit characters.
-
-# my solution 
+# lembrando que esse código foi criado e adaptado para uma questão rodada na plataforma coddy , para funcionar no vs code vc deve fazer certas adaptações 
 
 def organize_contacts(contact_list):
     lista_de_emails = []
     lista_de_nomes = []
     # aqui vamos guardar os nomes no dicionário 
-    contact_list_s_repetidos = []
     for dicionario in contact_list :
            lista_de_keys = dicionario.keys()
+           
            for key in lista_de_keys:
            # vamos percorrer a lista de chaves de cada dicionário 
                 if key == "email" : 
-                    if key["email"] not in lista_de_emails : 
-                        lista_de_emails.append("email")
+                    dicionario["email"] = (dicionario["email"]).lower()
+                    # já testei  essa funcionalidade de forma isolada no vs code , sem verificar se o email e o nome está repetido . Está funcionando direitinho
+                    if dicionario["email"] not in lista_de_emails : 
+                        lista_de_emails.append(dicionario["email"])
                     else : 
                        # if key["email"] in lista_de_emails :
                        # caso o email já esteja na lista de emails vamos remover esse diconário 
                        contact_list.remove(dicionario)
                 elif key == "name" :
-                     if key["name"] not in lista_de_nomes : 
-                        lista_de_nomes.append("email")
+                     if dicionario["name"] not in lista_de_nomes : 
+                        lista_de_nomes.append(dicionario["name"])
                     else : 
                        # if key["nomes"] in lista_de_nomes :
                        # caso o nome já esteja na lista de nomes vamos remover esse diconário 
                        contact_list.remove(dicionario) 
+                       # vou tirar essa remoção do dicionário dentro da interação da lista de contatos usando remove . Porque segundo o expert do gpt :
+#                        Este é um dos erros mais comuns e, ao mesmo tempo, mais críticos ao manipular coleções em Python. Quando você itera sobre uma lista (ou qualquer sequência mutável) e, simultaneamente, modifica essa lista (adicionando ou removendo elementos), o comportamento do iterador se torna imprevisível e, na maioria das vezes, incorreto. O iterador interno do Python mantém um controle da posição atual na lista. Se você remove um elemento, a lista se encolhe, e todos os elementos que estavam após o item removido "sobem" uma posição para preencher o espaço. No entanto, o iterador continua a avançar para a próxima posição original. Isso significa que:
+
+# Elementos podem ser pulados: O iterador pode pular o elemento que "subiu" para a posição do item removido, pois ele já avançou para o próximo índice. Consequentemente, alguns dicionários na sua contact_list original podem nunca ser processados ou verificados para duplicidade.
+# Comportamento inconsistente: A ordem e a forma como os dicionários são processados e removidos dependerão da ordem inicial dos elementos na lista, levando a resultados inconsistentes.
+# Potencial para IndexError: Embora menos comum neste tipo específico de remoção (onde o próprio elemento iterado é removido), em cenários mais complexos de modificação durante a iteração, pode-se tentar acessar um índice que não existe mais, resultando em um erro de tempo de execução. Em suma, a modificação da contact_list enquanto ela está sendo iterada compromete a integridade do processo de varredura e remoção, tornando a lógica de identificação de duplicatas fundamentalmente falha.
                     ########
                 else : 
                     pass 
@@ -52,4 +39,4 @@ def organize_contacts(contact_list):
                             
         # para um dicionário numa lista de dicionários 
 
-    pass
+    return contact_list
