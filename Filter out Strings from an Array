@@ -1,0 +1,14 @@
+# enunciado da questão no comentário do comit 
+
+#obs : esse código foi moldado para ser rodado na url do coddy , adapte algumas partes do código para executar no vs code 
+
+# my solution : 
+def filter_list(a):
+   
+  
+
+    res = []
+    for i in a:
+        if type(i) == int:
+            res.append(i)
+    return res
