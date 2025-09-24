@@ -1,0 +1,51 @@
+# enunciado da questão no comentário do commit 
+import os 
+os.system("cls")
+voto = 4
+# numero aleatorio inicial diferente de zero para voto .
+lista_de_votos = []
+# inicializando os contadores dos votos dos jogadores
+while True:
+    print("""
+Quem foi para você o melhor jogador para você ? digite : 
+         7- para votar no camisa 7
+         8- para votar no camisa 8
+         9- para votar no camisa 9
+         10- para votar no camisa 10
+         11- para votar no camisa 11
+         0 - para parar de votar 
+""")
+    voto = int(input("seu voto :"))
+    if voto == 7:
+        lista_de_votos.append(7)
+    elif voto == 8:
+        lista_de_votos.append(8)
+    elif voto == 9:
+        lista_de_votos.append(9)
+    elif voto == 10:
+        lista_de_votos.append(10)
+    elif voto == 11:
+        lista_de_votos.append(11)
+    elif voto == 0:
+        print("=~"*30, "fim da contagem", "=~"*30)
+        break
+    else:
+        print("opção inválida, seu voto não será contabilizado !!!")
+n_de_votos7 = lista_de_votos.count(7)
+n_de_votos8 = lista_de_votos.count(8)
+n_de_votos9 = lista_de_votos.count(9)
+n_de_votos10 = lista_de_votos.count(10)
+n_de_votos11 = lista_de_votos.count(11)
+
+porc7 = (n_de_votos7 / (len(lista_de_votos)))*100
+porc8 = (n_de_votos8 / (len(lista_de_votos)))*100
+porc9 = (n_de_votos9 / (len(lista_de_votos)))*100
+porc10 = (n_de_votos10 / (len(lista_de_votos)))*100
+porc11 = (n_de_votos11 / (len(lista_de_votos)))*100
+print(f"Foram computados {len(lista_de_votos)} votos")
+print(f"jogadores  |votos    |percentual                ")
+print(f"jogador 7  |votos :{n_de_votos7} |porcentagem :{porc7}%")
+print(f"jogador 8  |votos :{n_de_votos8} |porcentagem :{porc8}%")
+print(f"jogador 9  |votos :{n_de_votos9} |porcentagem :{porc9}%")
+print(f"jogador 10 |votos :{n_de_votos10} |porcentagem :{porc10}%")
+print(f"jogador 11 |votos :{n_de_votos11} |porcentagem :{porc11}%")
