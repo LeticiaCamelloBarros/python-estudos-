@@ -15,4 +15,5 @@
 * curso python que fiz nas férias
 * exercícios e desafios que eu criei na minha cabeça
 * coddy - url 
-* prova de carol
+* prova de carol ( professora de fundamentos de programação - 1 periodo - cesar school ) 
+* lista de carol ( professora de fundamentos de programação - 1 periodo - cesar school ) 
