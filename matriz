@@ -1,0 +1,17 @@
+linhas = int(input("digite o número e linhas"))
+colunas = int(input("digite o número de colunas"))
+
+matriz = []
+
+for i in range(linhas):
+    lista_linhas = []
+    for j in range(colunas):
+        elemento = int(
+            input(f"qual o valor do elemento da [{i+1}] linha  , [{j+1}] coluna ? : "))
+        lista_linhas.append(elemento)
+    matriz.append(lista_linhas)
+
+for linha in matriz:
+    for item in linha:
+        print(f"[{item}]", end=" ")
+    print()
