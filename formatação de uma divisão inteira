@@ -1,0 +1,21 @@
+def numero_div(num):
+    resto = None
+    quo = None
+    tx = 2
+    while resto != 0:
+        if num < tx:
+            status = "processed"
+            if status == "processed":
+                break
+        quo = num // tx
+        print(f"{quo}={num}//{tx}")
+        num = quo
+
+
+num1 = 24
+# testando com número par
+num2 = 25
+# testando com número impar
+numero_div(num1)
+print("=;"*50)
+numero_div(num2)
