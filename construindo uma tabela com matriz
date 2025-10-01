@@ -1,14 +1,4 @@
-# Uma empresa de tecnologia está construindo uma base de dados para que
-# posteriormente possa fazer uma postagem no LinkedIn sobre as três profissões que
-# possuem mais vagas em aberto, sendo elas: desenvolvedor python, cientista de dados e
-# analista de QA. Para cada uma dessas profissões deverá ser cadastrado o salário médio
-# (primeira coluna), tempo mínimo de experiência (segunda coluna) e o valor da hora de
-# trabalho (terceira coluna). Na sequência, utilizando uma matriz de tamanho 3x3,
-# desenvolva um programa que faça esse cadastro e, na sequência:
-# a) Exiba a matriz na tela com os valores em formato de tabela;
-# b) A média salarial das três profissões;
-# c) A soma dos valores da diagonal principal (valores em preto);
-# diagonal principal é assim \ .
+
 
 matriz = []
 print("insira as informações sabendo que a ordem das profissões é :\n",
