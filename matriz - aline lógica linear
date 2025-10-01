@@ -1,0 +1,66 @@
+# o texto / enunciado  da questão , estará no comentário do commit . 
+
+
+matriz = []
+for linha_idx in range(3):
+    linha = []
+    for coluna_idx in range(3):
+        coluna = int(input(f"qual o elemento [{linha_idx+1}][{coluna_idx+1}]"))
+        linha.append(coluna)
+    matriz.append(linha)
+
+# produto dos elementos da diagonal principal
+produto = 1
+for linha_idx in range(3):
+    for coluna_idx in range(3):
+        if linha_idx == 0 and coluna_idx == 0:
+            elemento = matriz[linha_idx][coluna_idx]
+            produto *= elemento
+        elif linha_idx == 1 and coluna_idx == 1:
+            elemento = matriz[linha_idx][coluna_idx]
+            produto *= elemento
+        elif linha_idx == 2 and coluna_idx == 2:
+            elemento = matriz[linha_idx][coluna_idx]
+            produto *= elemento
+        else:
+            pass
+print(f"Produto dos elementos da diagonal principal :{produto}: ")
+# fazendo a soma
+soma_elementos = []
+for linha in matriz:
+    # você vai adicionar à lista soma elementos a soma dos elementos de cada linha .
+    soma_elementos.append(sum(linha))
+
+soma_elementos = sum(soma_elementos)
+# você vai somar a soma dos elementos de cada linha , tendo assim a soma dos elementos
+
+# fazendo a media
+media = soma_elementos / 9
+
+valores_2_coluna = []
+for linha_idx in range(3):
+    for coluna_idx in range(3):
+        if coluna_idx == 1 :
+            # se o indice da coluna for 1  vamos adicionar esse elemento à lista de valores da 2 coluna
+            valores_2_coluna.append(matriz[linha_idx][coluna_idx])
+maior_2_valor = max(valores_2_coluna)
+
+lista_de_elementos = []
+for linha_idx in range(3):
+    for coluna_idx in range(3):
+        # vai pegar todos os elementos e adicionar à lista , lista de elementos 
+        lista_de_elementos.append(matriz[linha_idx][coluna_idx])
+
+valores_men_ou_iguais_med = []
+for elemento in lista_de_elementos:
+    if elemento <= media:
+        if elemento not in valores_men_ou_iguais_med:
+            # para não sair valores repetidos
+            valores_men_ou_iguais_med.append(elemento)
+
+
+print(f"A media de todos os elementos da matriz :{media}")
+print(f"o maior valor lido da segunda coluna {maior_2_valor}")
+print(f"valores menores ou iguais a media : {valores_men_ou_iguais_med}")
+
+
