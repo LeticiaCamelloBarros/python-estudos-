@@ -16,4 +16,8 @@
 * exercícios e desafios que eu criei na minha cabeça
 * coddy - url 
 * prova de carol ( professora de fundamentos de programação - 1 periodo - cesar school ) 
-* lista de carol ( professora de fundamentos de programação - 1 periodo - cesar school ) 
+* lista de carol ( professora de fundamentos de programação - 1 periodo - cesar school )
+
+## exercitar : 
+* otimizar o codigo da questão :
+  - aline lógica linear 
