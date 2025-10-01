@@ -1,0 +1,54 @@
+
+
+matriz = []
+# a lista matriz irá guardar as listas que representam cada linha
+for linha_idx in range(3):
+    linha_lst = []
+    # dentro da nossa lista matriz será guardada uma lista linha que será criada número de
+    # linhas vezes , ou seja , 3 vezes
+    for coluna_idx in range(3):
+        # o coluna_idx representa o indice de cada elemento de cada lista linha
+        numero = int(input(
+            f"escolha um número para ser posto na posição [{linha_idx+1}][{coluna_idx+1}]"))
+        linha_lst.append(numero)
+        # depois que obter todos os itens da linha ( que no futuro viraram nossas colunas) adicionaremos essa linha à lista matriz
+    matriz.append(linha_lst)
+
+
+coluna = int(input(
+    "escolha a coluna(1,2 ou 3) a qual a operação deve ser realizada  (sabendo que temos 3 colunas na nossa matriz) : "))-1
+# vou colocar o -1 ao lado do coluna para que obtemos o indice real da coluna digitada pelo usuário
+operacao = input(
+    "qual operação você deseja fazer com a nossa matriz ? (digite 's'para soma e 'p' para produto) :").upper()
+# o upper vai servir para deixar todas as resposta em maiusculo
+
+if operacao == "P":
+    multiplicacao = 1
+    # nossa variavel acumuladora de multiplicacao
+    for linha in matriz:
+        for coluna_idx in range(3):
+            # esse codigo vai rodar 3 vezes ; com os indices 1 , 2 , 3 .
+            if coluna_idx == coluna:
+                # se o indice do elemento da nossa linha(coluna_idx) coincidirem com a coluna especificada :
+                multiplicacao *= linha[coluna_idx]
+    print(f"*"*35, "resultado da operação", "*"*35)
+    print(f"o resultado da operação de multiplicação é {multiplicacao}")
+elif operacao == "S":
+    soma = 0
+    for linha in matriz:
+        # vamos percorrer cada linha da nossa
+        for coluna_idx in range(3):
+            # esse codigo vai rodar 3 vezes ; com os indices 1 , 2 , 3 .
+            if coluna_idx == coluna:
+                # se o indice do elemento da nossa linha(coluna_idx) coincidirem com a coluna especificada somaremos isso
+                soma += linha[coluna_idx]
+    print(f"*"*35, "resultado da operação", "*"*35)
+    print(f"o resultado da operação de soma é {soma}")
+else:
+    # caso a resposta nao seja S nem P
+    print("operação inválida")
+
+for linha_idx in range(3):
+    for coluna_idx in range(3):
+        print(matriz[linha_idx][coluna_idx], end=" ")
+    print()
