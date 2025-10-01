@@ -1,0 +1,81 @@
+# Uma empresa de tecnologia está construindo uma base de dados para que
+# posteriormente possa fazer uma postagem no LinkedIn sobre as três profissões que
+# possuem mais vagas em aberto, sendo elas: desenvolvedor python, cientista de dados e
+# analista de QA. Para cada uma dessas profissões deverá ser cadastrado o salário médio
+# (primeira coluna), tempo mínimo de experiência (segunda coluna) e o valor da hora de
+# trabalho (terceira coluna). Na sequência, utilizando uma matriz de tamanho 3x3,
+# desenvolva um programa que faça esse cadastro e, na sequência:
+# a) Exiba a matriz na tela com os valores em formato de tabela;
+# b) A média salarial das três profissões;
+# c) A soma dos valores da diagonal principal (valores em preto);
+# diagonal principal é assim \ .
+
+matriz = []
+print("insira as informações sabendo que a ordem das profissões é :\n",
+      "1-Desenvolvedor Python\n",
+      "2-Cientista de dados\n",
+      "3-Analista de QA"
+      )
+
+salario_medios = []
+# a lista_salario_medios servirá para guardar os salarios médios das 3 profissões
+# a minha lista matriz irá guardar as minhas listas linhas , deixando assim cada linha uma embaixo da outra
+for linha_idx in range(3):
+    # cada coluna terá 3 linhas , que representaram as 3 profissões
+    linha = []
+    # vamos criar uma lista chamada linha numero de linhas vezes , ou seja 3 .
+    for coluna_idx in range(3):
+        # cada linha terá 3 colunas que representam os nomes das profissões
+        # vamos mudar a pergunta para guiar o usuário e ele saber o que ele tá inserindo na tabela
+        if coluna_idx == 0:
+            # se o indice da coluna for 0 , quer dizer que devemos perguntar qual o salário 0
+            info = int(
+                input(f"qual o salário médio da {linha_idx+1} profissão"))
+            salario_medios.append(info)
+            linha.append(info)
+        elif coluna_idx == 1:
+            # se for 1 perguntaremos o tempo minimo de experiencia
+            info = int(
+                input(f"qual o tempo minimo de experiencia da {linha_idx+1} profissão"))
+            linha.append(info)
+        elif coluna_idx == 2:
+            # já se for 2 perguntaremos o valor-hora
+            info = int(
+                input(f"qual o valor-hora da {linha_idx+1} profissão ? "))
+            # depois de ler a informação vamos adiciona-la a lista linha da vez
+            linha.append(info)
+    # depois que todos os 3 itens da lista linha forem adicionados , vamos adiciona-los a lista matriz
+    matriz.append(linha)
+
+print(f"  salario médio\t          tempo minimo de experiencia\t            valor-hora\t\t")
+for linha_idx in range(3):
+    for coluna_idx in range(3):
+        if linha_idx == 0:
+            # se o indice da linha for 0 você vai mostrar as operações para desenvolvedores python
+            print("dev . Python" "\t",
+                  matriz[linha_idx][coluna_idx], "|", end="\t\t")
+        elif linha_idx == 1:
+            # se for 1 , vai mostrar para os cientistas de dados
+            print("C. de dados" "\t",
+                  matriz[linha_idx][coluna_idx], "|", end="\t\t")
+        elif linha_idx == 2:
+            # já se for 2 , vai mostrar para o analista de QA
+            print("Anal. de QA" "\t",
+                  matriz[linha_idx][coluna_idx], "|", end="\t\t")
+    print()
+
+
+# somando a média salarial das 3 profissões
+media_dos_salarios = (sum(salario_medios))/3
+
+# fazendo a soma dos valores da diagonal principal :
+valores_diag_princ_sum = 0
+# essa acumuladora guardará a soma dos valores da diagonal principal
+for linha_idx in range(3):
+    for coluna_idx in range(3):
+        if coluna_idx == linha_idx:
+            # se o indice da coluna for igual ao indice da linha ,
+            #  quer dizer que esse elemento pertence à diagonal principal
+            valores_diag_princ_sum += matriz[linha_idx][coluna_idx]
+print(f"a média salarial das 3 profissões é : {media_dos_salarios}")
+print(f"a soma dos valores da diagonal principal é : {valores_diag_princ_sum}")
