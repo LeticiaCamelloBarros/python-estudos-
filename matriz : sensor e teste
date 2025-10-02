@@ -1,4 +1,26 @@
+# QUESTÃO 01 — [MATRIZ]
+# Uma equipe de robótica registrou o desempenho de 3 sensores (linhas) em 3 testes (colunas)
+# dentro de uma matriz 3×3 de inteiros.
+# Faça um programa que:
+# 1. Leia os 9 valores e exiba a matriz em formato de tabela (linhas e colunas). [(check)]
+# 2. Calcule e mostre: a soma da diagonal principal[(check)]; a média dos valores da 2a coluna[(check)]; o
+# maior valor da 3a linha.
+# 3. Informe a posição (linha, coluna) do menor valor da matriz (indexação a partir de 0).[(usar listas paralelas, como se fossem dicionarios)]
 
+# ENTRADA (EXEMPLO)
+# 3 valores por linha (total 9)
+# 1 2 3
+# 4 5 6
+# 7 8 9
+# SAÍDA (EXEMPLO)
+# Matriz:
+# 1 2 3
+# 4 5 6
+# 7 8 9
+# Soma diag. principal: 15
+# Média da 2a coluna: 5.00
+# Maior da 3a linha: 9
+# Menor valor: 1 na posição (0, 0)
 
 
 # sensor == linha
@@ -21,3 +43,24 @@ for linha_idx in range(3):
     for coluna_idx in range(3):
         print(matriz[linha_idx][coluna_idx], end="   \t\t")
     print()
+
+# soma dos valores da diagonal principal :
+soma_diag = 0
+# a variável soma_diag vai guardar a soma dos elementos da diagonal principal
+soma_coluna2 = 0
+# a variável soma_coluna2 vai guardar a soma dos elementos da segunda coluna
+for linha_idx in range(3):
+    for coluna_idx in range(3):
+        if coluna_idx == linha_idx:
+            # se o indice da coluna for igual ao indice da linha quer dizer que é um elemento da diagonal principal
+            soma_diag += matriz[linha_idx][coluna_idx]
+        # vamos usar if ao invés de elif para caso  o item pertença à diagonal principal e também à coluna,ele também seja contabilizado
+        if coluna_idx == 1:
+            # a segunda coluna num range 3 , é representada pelo indice 1
+            # vamos verificar se o valor se encaixa no indice 1 , ou seja , se ele pertence à segunda coluna
+            # se sim vamos acumular esse valor na acumuladora soma_coluna2
+            soma_coluna2 += matriz[linha_idx][coluna_idx]
+# a média da segunda coluna será feita divindo a soma dos elementos por 3 , por que cada coluna tem 3 itens 
+media_2coluna = soma_coluna2 / 3
+print(f"a soma dos elementos da diagonal principal é {soma_diag}")
+print(f"a média dos elementos da segunda coluna é {media_2coluna}")
