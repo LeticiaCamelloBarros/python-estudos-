@@ -1,0 +1,23 @@
+
+
+
+# sensor == linha
+# testes == coluna
+matriz = []
+for linha_idx in range(3):
+    linha = []
+    # a lista linha vai armazenar os valores das linhas . Quando uma linha ficar embaixo de outra linha o valor na posição 0 da linha 1 , vai
+    # estar na mesma coluna , que o valor na linha 0 da linha 2 ...
+    for coluna_idx in range(3):
+        n = int(input(f"sensor ({linha_idx+1}) teste ({coluna_idx+1})"))
+        linha.append(n)
+    # assim que cada uma das 3 linhas estiver com todos os seus valores (dados no loop das colunas)
+    # vamos adicionar cada uma delas à lista matriz
+    matriz.append(linha)
+
+print("\t      teste 1       ", "teste 2     ", "   teste 3")
+for linha_idx in range(3):
+    print(f"sensor {linha_idx} :", end="\t")
+    for coluna_idx in range(3):
+        print(matriz[linha_idx][coluna_idx], end="   \t\t")
+    print()
