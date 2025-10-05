@@ -4,8 +4,8 @@
 # Faça um programa que:
 # 1. Leia os 9 valores e exiba a matriz em formato de tabela (linhas e colunas). [(check)]
 # 2. Calcule e mostre: a soma da diagonal principal[(check)]; a média dos valores da 2a coluna[(check)]; o
-# maior valor da 3a linha.
-# 3. Informe a posição (linha, coluna) do menor valor da matriz (indexação a partir de 0).[(usar listas paralelas, como se fossem dicionarios)]
+# maior valor da 3a linha[(check)].
+# 3. Informe a posição (linha, coluna) do menor valor da matriz (indexação a partir de 0).[(check)]
 
 # ENTRADA (EXEMPLO)
 # 3 valores por linha (total 9)
@@ -49,6 +49,8 @@ soma_diag = 0
 # a variável soma_diag vai guardar a soma dos elementos da diagonal principal
 soma_coluna2 = 0
 # a variável soma_coluna2 vai guardar a soma dos elementos da segunda coluna
+maior_valor_3lin = 0
+# a variável acima vai guardar o maior valor da 3 linha
 for linha_idx in range(3):
     for coluna_idx in range(3):
         if coluna_idx == linha_idx:
@@ -60,7 +62,29 @@ for linha_idx in range(3):
             # vamos verificar se o valor se encaixa no indice 1 , ou seja , se ele pertence à segunda coluna
             # se sim vamos acumular esse valor na acumuladora soma_coluna2
             soma_coluna2 += matriz[linha_idx][coluna_idx]
-# a média da segunda coluna será feita divindo a soma dos elementos por 3 , por que cada coluna tem 3 itens 
+    if linha_idx == 2:
+        # se for a terceira linha :
+        for coluna_idx in range(3):
+            if matriz[2][coluna_idx] > maior_valor_3lin:
+                maior_valor_3lin = matriz[2][coluna_idx]
+
+
+# a média da segunda coluna será feita divindo a soma dos elementos por 3 , por que cada coluna tem 3 itens
 media_2coluna = soma_coluna2 / 3
+maior_valor_matriz = 0
+# vamos colocar a variável maior valor como zero , por que é o menor valor possível
+posicao = None
+# a primeira posicao vai ser none
+for linha_idx in range(3):
+    for coluna_idx in range(3):
+        if matriz[linha_idx][coluna_idx] > maior_valor_matriz:
+            maior_valor_matriz = matriz[linha_idx][coluna_idx]
+            # agora o valor da variável maior_valor_matriz será matriz[linha_idx][coluna_idx]
+            posicao = f"linha {linha_idx} e coluna {coluna_idx}"
+            # agora o novo valor da variável posicao será esse novo texto com os valores das linhas e das colunas do novo maior valor
 print(f"a soma dos elementos da diagonal principal é {soma_diag}")
 print(f"a média dos elementos da segunda coluna é {media_2coluna}")
+print(f"o maior valor da 3 linha é {maior_valor_3lin}")
+print(
+    f"o maior valor da matriz é o elemento {maior_valor_matriz} que se sutua na {posicao}")
+
