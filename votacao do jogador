@@ -1,0 +1,43 @@
+# descrição da questão no comentário do commit
+
+camisa = None
+# vamos atribuir None como um valor inicial para camisa , por que None é diferente de 0
+# assim vai entrar automaticamente no loop
+votacao = []
+# vamos criar uma lista para armazenar os jogadores votados , com repeticao
+numero_de_votos = 0
+# a contadora numero_de_votos vai contabilizar nossos votos válidos
+while camisa != 0:
+    camisa = int(input(
+        "insira o número da camisa do jogador que você acha que foi o melhor jogador : "))
+    if 7 <= camisa <= 11:
+        # se a camisa votada estiver dentro do intervalo vamos inseri-la na nossa lista com a votação
+        votacao.append(camisa)
+        numero_de_votos += 1
+
+
+camisas_votadas = []
+# agora vamos criar uma lista para guardar os jogadores votados , sem repetição
+
+for camisa in votacao:
+    if camisa not in camisas_votadas:
+        # com essa condicional , apenas os jogadores que ainda não foram adicionados na lista camisas_votadas
+        # vão ser adicionados nessa lista , evitando assim repetição .
+        camisas_votadas.append(camisa)
+
+o_melhor = 0
+votos_melhor = None
+print(f"- resultado da votação :")
+print(f"\t - foram computados {numero_de_votos} votos")
+print(f"\njogador  votos \t porcentagem  ")
+for jogador in camisas_votadas:
+    votos_do_jogador = votacao.count(jogador)
+    porc = (votos_do_jogador / numero_de_votos)*100
+    print(f" {jogador} \t  {votos_do_jogador} \t {porc}")
+    if votacao.count(jogador) > o_melhor:
+        # se a quantidade de vezes que a camisa de um tal jogador aparecer na lista votacao
+        # for maior que o atual valor da variável o_melhor , o_melhor terá seu valor reatribuido para esse jogador .
+        o_melhor = jogador
+        votos_melhor = votacao.count(jogador)
+
+print(f"o melhor jogador é o camisa {o_melhor} com {votos_melhor} votos")
