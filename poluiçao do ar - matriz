@@ -1,0 +1,50 @@
+# A equipe de monitoramento ambiental de uma cidade está desenvolvendo um sistema
+# para analisar a qualidade do ar em diferentes regiões. Para isso, foram instalados sensores
+# em 9 pontos estratégicos da cidade, organizados em uma matriz 3x3, onde cada valor
+# representa o nível de poluição medido. Desenvolva um programa que receba como
+# entrada os valores dessa matriz 3x3 e retorne:
+# ● A saída da matriz em formato de tabela, organizada em linhas e colunas.
+# ● A média geral dos níveis de poluição cadastrados na matriz;
+# ● O maior nível de poluição registrado na primeira coluna.
+
+matriz = []
+i = 0
+# contador serve apenas para guiar o usuário
+for linha_idx in range(3):
+    linha = []
+    for coluna_idx in range(3):
+        i += 1
+        entrada = int(input(f"insira o {i} elemento : "))
+        linha.append(entrada)
+        # vamos adicionar numero de colunas vezes a entrada selecionada à essa linha
+    matriz.append(linha)
+    # quando acabar o loop das colunas vamos inserir , dentro do loop das linhas , a linha da vez
+    # com todos os seus elementos que foram adiquiridos , na matriz. Vamos repetir essa operação quantidade de linhas vezes
+
+lst_1_colum = []
+# lista de elementos da primeira coluna
+lista_de_elementos = []
+# lista de elementos de toda a matriz
+for linha_idx in range(3):
+    for coluna_idx in range(3):
+        if coluna_idx == 2:
+            # vamos colocar essa condicionar para caso seja a ultima coluna não colocar  o
+            # simbolo "|" ao lado do elemento
+            print(matriz[linha_idx][coluna_idx], end="   ")
+            lista_de_elementos.append(matriz[linha_idx][coluna_idx])
+        else:
+            print(matriz[linha_idx][coluna_idx], end="  | ")
+            lista_de_elementos.append(matriz[linha_idx][coluna_idx])
+            if coluna_idx == 0:
+                # se for a primeira coluna :
+                lst_1_colum.append(matriz[linha_idx][coluna_idx])
+    print()
+
+soma_dos_elementos = sum(lista_de_elementos)
+# para fazer a média vamos dividir a soma dos elementos pelo número de elementos , ou seja , 9 .
+media = soma_dos_elementos / 9
+
+# aplicando um max para saber quem é o maior elemento 
+o_maior_colum1 = max(lst_1_colum)
+print(f"o maior elemento da primeira coluna é : {o_maior_colum1}")
+print(f"a média dos elementos dessa matriz é {media}")
