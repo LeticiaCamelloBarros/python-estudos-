@@ -1,0 +1,78 @@
+#enunciado da questão no comentário do commit 
+
+# 5 escolas . Cada escolas deve informar o nome e a média geral dos alunos
+qnt_esc_media_maior7 = 0
+# contadora para guardar a quantidade de escolas com média maior que 7 
+menor_media = 99999999999999999
+# valor alto para ser comparado a primeira média e a primeira média der como a menor até que se prove o contrário ao pecorrer do range
+nome_esc_menor_media = None
+# variável que vai guardar o nome da escola com menor média 
+soma_medias = 0
+# contadora que vai guardar a soma das medias 
+# vamos ter que criar 5 variáveis para guardar o nome das 5 escolas e 5 variáveis para guardar as medias das 5 escolas (já que não pode usar lista)
+for i in range(5):
+    if i == 0:
+        # escola1
+        print(f"escola {i+1}")
+        nome1 = input("qual o nome da sua escola ? : ")
+        media1 = float(
+            input("qual a média das notas dos alunos da sua escola ? : "))
+        soma_medias += media1
+        if media1 > 7.0:
+            qnt_esc_media_maior7 += 1
+        if media1 < menor_media:
+            menor_media = media1
+            nome_esc_menor_media = nome1
+    elif i == 1:
+        # escola2
+        print(f"escola {i+1}")
+        nome2 = input("qual o nome da sua escola ? : ")
+        media2 = float(
+            input("qual a média das notas dos alunos da sua escola ? : "))
+        soma_medias += media2
+        if media2 > 7.0:
+            qnt_esc_media_maior7 += 1
+        if media2 < menor_media:
+            menor_media = media2
+            nome_esc_menor_media = nome2
+    elif i == 2:
+        # escola3
+        print(f"escola {i+1}")
+        nome3 = input("qual o nome da sua escola ? : ")
+        media3 = float(
+            input("qual a média das notas dos alunos da sua escola ? : "))
+        soma_medias += media3
+        if media3 > 7.0:
+            qnt_esc_media_maior7 += 1
+        if media3 < menor_media:
+            menor_media = media3
+            nome_esc_menor_media = nome3
+    elif i == 3:
+        # escola 4
+        print(f"escola {i+1}")
+        nome4 = input("qual o nome da sua escola ? : ")
+        media4 = float(
+            input("qual a média das notas dos alunos da sua escola ? : "))
+        soma_medias += media4
+        if media4 > 7.0:
+            qnt_esc_media_maior7 += 1
+        if media4 < menor_media:
+            menor_media = media4
+            nome_esc_menor_media = nome4
+    elif i == 4:
+        # escola 5
+        print(f"escola {i+1}")
+        nome5 = input("qual o nome da sua escola ? : ")
+        media5 = float(
+            input("qual a média das notas dos alunos da sua escola ? : "))
+        soma_medias += media5
+        if media5 > 7.0:
+            qnt_esc_media_maior7 += 1
+        if media5 < menor_media:
+            menor_media = media5
+            nome_esc_menor_media = nome5
+
+print(
+    f"quantidade de escolas com media superior a 7.0 : {qnt_esc_media_maior7}")
+print(f"a escola com menor media é {nome_esc_menor_media}")
+print(f"a soma das médias é {soma_medias}")
