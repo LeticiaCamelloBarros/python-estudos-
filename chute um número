@@ -1,0 +1,21 @@
+# enunciado da questão no comentário do commit 
+qnt_tentativas = 0
+# contadora para contar quantas foram as tentativas
+adivinha = int(input())
+
+numero = None
+# como None é diferente de adivinha ( o número a ser adivinhado) o loop será entrado automáticamente pois None é diferente de qualquer valor que o usuário 
+  # escolher para ser adivinhado 
+
+print()
+# para dar um espaço em branco entre as duas entradas
+while numero != adivinha:
+    numero = int(input())
+    qnt_tentativas += 1
+    if numero > adivinha:
+        print("muito alto")
+    elif numero < adivinha:
+        print("muito baixo")
+
+# caso ele acertar a condicional de parada do loop vai ser atingida então nossa mensagem de parabéns ficará fora do loop
+print(f"parabéns você acertou com {qnt_tentativas} tentativas")
