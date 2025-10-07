@@ -1,0 +1,53 @@
+# enunciado da questão no comentário do commit
+
+comando = None
+lista_de_produtos = []
+# vamos o produto com a sua quantidade correspondente de acordo com os seus indices .
+lista_de_quantidades = []
+while comando != "s":
+    print("""escolha uma ação : \n 
+ ● AP: Adicionar um novo produto ao estoque, informando seu nome e a quantidade
+# inicial.
+# ● RP: Remover completamente um produto do estoque.
+# ● AE: Adicionar unidades ao estoque de um produto já existente.
+# ● RE: Remover unidades do estoque de um produto já existente.
+# ● S: Encerrar o programa.
+""")
+    comando = input().lower()
+    if comando == "ap":
+        #  ● AP: Adicionar um novo produto ao estoque, informando seu nome e a quantidade # inicial.
+        produto = input()
+        qntd = int(input())
+        lista_de_produtos.append(produto)
+        lista_de_quantidades.append(qntd)
+    elif comando == "rp":
+        #   ● RP: Remover completamente um produto do estoque.
+        nome_remov = input()
+        indice_remov = lista_de_produtos.index(nome_remov)
+        # indice do produto que você quer remover ( que tambem é o indice da quantidade que você deve remover )
+        lista_de_produtos.remove(nome_remov)
+        del lista_de_quantidades[indice_remov]
+    elif comando == "ae":
+        # ● AE: Adicionar unidades ao estoque de um produto já existente.
+        produto_adic_qntd = input()
+        # produto que você quer adionar sua quantidade
+        qntd_adic = int(input())
+        # valor que você deseja acrescentar ao produto especificado
+        indice_adicqntd = lista_de_produtos.index(produto_adic_qntd)
+        # indice do produto que você quer adicionar quantia à sua quantidade , que também é o indice da sua quantidade
+        lista_de_quantidades[indice_adicqntd] += qntd_adic
+    elif comando == "re":
+        # ●  ● O comando RE, seguido do nome de um produto já cadastrado e da quantidade a ser
+        # removida.
+        produto_retir_qntd = input()
+        # produto que você deseja retirar um certo valor dele
+        qntd_retir = int(input())
+        # quantidade que você deseja retirar desse produto
+        indice_retirqntd = lista_de_produtos.index(produto_retir_qntd)
+        # indice do produto que você quer retirar quantia à sua quantidade , que também é o indice da sua quantidade
+        lista_de_quantidades[indice_retirqntd] -= qntd_retir
+
+for item in lista_de_produtos:
+    indice_item = lista_de_produtos.index(item)
+    qntd_item = lista_de_quantidades[indice_item]
+    print(f"item  : {qntd_item}")
