@@ -1,0 +1,10 @@
+# enunciado no comentário do commmit da questão 
+
+
+
+# dicionario = {}
+# numero = float(input("insira um número :"))
+# for key in range(numero+1):
+#     quadrado = key ** 2
+#     dicionario[key] = quadrado
+# print(dicionario)
