@@ -1,0 +1,5 @@
+# enunciado da questão no comentário do commit 
+
+frase = input("frase : ")
+frase= input("frase: ")
+substituta = input("substituta : ")
