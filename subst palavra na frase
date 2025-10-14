@@ -3,3 +3,9 @@
 frase = input("frase : ")
 frase= input("frase: ")
 substituta = input("substituta : ")
+
+if frasein frase:
+    frase= frase.replace(frase, substituta)
+else:
+    print(f"frase{frase} not in frase")
+print(frase)
