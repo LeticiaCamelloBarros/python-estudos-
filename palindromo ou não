@@ -1,0 +1,9 @@
+
+# enunciado da questão está no comentário do commit 
+
+frase = input()
+frase = frase.replace(" ", "")
+if frase == frase[::-1]:
+     print(f"A frase{frase} é um palindromo")
+ else:
+     print(f"A frase{frase} não é um palindromo")
