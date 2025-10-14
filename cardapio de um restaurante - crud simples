@@ -1,0 +1,39 @@
+
+cardapio = {"ITEM": "PREÇO"}
+while True:
+    print("""
+você deseja fazer o que  ? :
+-adicionar (digite 1):
+-remover (digite 2)
+-modificar (digite 3)
+-sair do programa (digite 0)
+""")
+    comando = float(input("ação : "))
+    if comando == 1:
+        comida = input("qual comida você quer adiciona :").strip()
+        valor = float(input("qual será o seu valor ? :").strip())
+        cardapio[comida] = valor
+    elif comando == 2:
+        comida = input("qual comida você quer remover ? :").strip()
+        if comida in cardapio.keys():
+            del cardapio[comida]
+        else:
+            # caso comida não existe :
+            print("comida não existe")
+    elif comando == 3:
+        comida = input("qual comida você quer modificar o valor ? : ").strip()
+        if comida in cardapio.keys():
+            valor = float(
+                input(f"qual o novo valor você quer atribuir à {comida}").strip())
+            cardapio[comida] = valor
+        else:
+            # caso comida não existe :
+            print("comida não existe")
+
+    elif comando == 0:
+        break
+    else:
+        print("comando inválido")
+
+for chave, valor in cardapio.items():
+    print(f"{chave}                 {valor}")
