@@ -1,0 +1,10 @@
+def progresso_do_aluno(p_inicial, p_final):
+    diferenca = p_inicial - p_final
+    porcentagem = (diferenca/p_inicial)*100
+    return porcentagem
+
+
+p_inicial = int(input())
+p_final = int(input())
+print(
+    f"a perda de peso do aluno foi de {progresso_do_aluno(p_inicial, p_final):.0f} %")
