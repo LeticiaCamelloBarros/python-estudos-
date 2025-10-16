@@ -1,0 +1,19 @@
+
+def numero_d_palavras1(frase):
+    palavras_list = frase.split(" ")
+    numero_d_palavras = len(palavras_list)
+    return numero_d_palavras
+
+# ou :
+
+
+def numero_d_palavras2(frase):
+    numero_d_espacos_vazios = frase.count(" ")
+    numero_d_palavras = numero_d_espacos_vazios + 1
+    return numero_d_palavras
+
+
+frase = input().strip()
+# strip vai tirar todos os espaços inuteis do inicio e do final e vai deixar só os do meio
+print(numero_d_palavras1(frase))
+print(numero_d_palavras2(frase))
