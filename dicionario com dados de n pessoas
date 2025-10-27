@@ -1,0 +1,24 @@
+
+
+dados_e_nome = {}
+num_pessoas = int(input("quantas pessoas eu vou ler ? :"))
+
+
+def ler_pessoa():
+    nome = input("qual o nome dessa pessoa ? :")
+    idade = int(input("qual a idade dessa pessoa ? :"))
+    altura = float(input("qual a altura dessa pessoa ? :"))
+    dados = [idade, altura]
+    dados_e_nome[nome] = dados
+
+
+def imprimir_pessoas():
+    print("nome    idade\taltura ")
+    for key, value in dados_e_nome.items():
+        print(f"{key}      \t{value[0]}\t{value[1]}")
+
+
+for pessoa in range(num_pessoas):
+    ler_pessoa()
+
+imprimir_pessoas()
