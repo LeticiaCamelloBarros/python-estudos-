@@ -1,0 +1,29 @@
+
+
+def sao_anagrama(word1, word2):
+    if len(word1) != len(word2):
+        return False
+    word1_list = list(word1)
+    # vai ordenar os caracteres da palavra 1 do menor para o maior
+    word1_list.sort()
+    word2_list = list(word2)
+    word2_list.sort()
+    word2_list_to_str = "".join(word2_list)
+    word1_list_to_str = "".join(word1_list)
+    if word2_list_to_str == word1_list_to_str:
+        return True
+    else:
+        return False
+
+
+respostas = []
+quant_testes = int(input("quantos casos testes ? :"))
+for teste_idx in range(quant_testes):
+    print(f"---caso teste {teste_idx}---")
+    palavra1 = input()
+    palavra2 = input()
+    resultado = sao_anagrama(palavra1, palavra2)
+    respostas.append(resultado)
+
+for resposta in respostas:
+    print(resposta)
