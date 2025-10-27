@@ -1,0 +1,40 @@
+
+
+
+def inserir_fim(lista):
+    valor = int(input("qual o valor você quer colocar ao final da lista ? :"))
+    lista.append(valor)
+    return lista
+
+
+def remove_fim(lista):
+    print("ultimo valor removido da lista")
+    del lista[-1]
+    return lista
+
+
+def insirir_inicio(lista):
+    valor = int(input("qual o valor você quer colocar ao inicio da lista ? :"))
+    lista.insert(0, valor)
+    return lista
+
+
+def remove_pos(lista):
+    indice = int(
+        input("qual o indice do item da lista que você quer remover ? :"))
+    del lista[indice]
+    return lista
+
+
+lista = (input("insira os itens da sua lista ").split())
+# transformando os itens da lista de números em string em uma lista de números inteiroos
+for i in lista:
+    indice_i = lista.index(i)
+    lista[indice_i] = int(i)
+print(lista)
+lista = inserir_fim(lista)
+lista = remove_fim(lista)
+lista = insirir_inicio(lista)
+lista = remove_pos(lista)
+
+print(lista)
