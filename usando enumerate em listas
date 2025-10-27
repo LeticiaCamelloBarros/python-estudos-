@@ -1,0 +1,4 @@
+lista = ["joao", "maria", "jose"]
+
+for i, nome in enumerate(lista):
+    print(f"{i+1}:{nome}")
