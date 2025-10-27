@@ -1,0 +1,32 @@
+
+
+lista_de_vogais = ["a", "e", "i", "o", "u"]
+vogais_nas_paginas = []
+num_pag = int(input("quantas paginas serão ? :"))
+for pagina_idx in range(num_pag):
+
+    num_frases = int(input(f"quantas frases tem na pagina {pagina_idx+1}? :"))
+    a_cont = 0
+    e_cont = 0
+    i_cont = 0
+    o_cont = 0
+    u_cont = 0
+    for frase in range(num_frases):
+        frase = input()
+        for caract in frase:
+            if caract == 'a':
+                a_cont += 1
+            elif caract == 'e':
+                e_cont += 1
+            elif caract == 'i':
+                i_cont += 1
+            elif caract == 'o':
+                o_cont += 1
+            elif caract == 'u':
+                u_cont += 1
+    vogais_pagina_format = f"A: {a_cont} E: {e_cont} I: {i_cont} O: {o_cont} U: {u_cont}"
+    vogais_nas_paginas.append(vogais_pagina_format)
+
+for resultado in vogais_nas_paginas:
+    print("---Tabela Vogais---")
+    print(resultado)
