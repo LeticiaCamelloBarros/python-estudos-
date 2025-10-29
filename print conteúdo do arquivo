@@ -1,0 +1,19 @@
+# enunciado no comentário do commit 
+nomes = []
+racas = []
+for idx in range(2):
+    nome = input()
+    raca = input()
+    nomes.append(nome)
+    racas.append(raca)
+
+# obs: sempre deve usar enconding ao abrir arquivos 
+
+for idx in range(2):
+    with open("info_dog.txt", "a", encoding='utf8') as arquivo:
+        info_txt = f"Nome: {nomes[idx]} Raça: {racas[idx]}"
+        arquivo.write(info_txt + "\n")
+        # no write você não pode usar virgula . O write só pode ter um parâmetro
+
+with open("info_dog.txt", "r", encoding="utf8") as arquivo:
+    print(arquivo.read())
