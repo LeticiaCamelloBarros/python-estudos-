@@ -1,0 +1,31 @@
+# enunciado da questão no comentário do comitt ) 
+list_num = []
+print("teste com 3 numeros , mas são 3")
+for medicao in range(3):
+    entrada = input()
+    list_num.append(entrada)
+
+with open("profundidade.txt", "w") as arquivo:
+    # vou colocar como w para não acumular os casos testes no arquivo
+
+    for numero in list_num:
+        # o comando write só escreve str
+        arquivo.write(numero+"\n")
+        # o flush serve para não ter que espera para ler no arquivo . Ele "força" a escrita no arquivo.
+        arquivo.flush()
+
+numeros_file = []
+print("-"*40)
+
+with open("profundidade.txt", "r") as arquivo:
+    # cada linha está sendo armazenada como um item  da lista
+    numeros_file = arquivo.readlines()
+maior_q_anterior = 0
+for numero_idx in range(1, len(numeros_file)):
+    # o range vai excluir o primeiro item da lista por que o
+    # primeiro nao tem um numero anterior à ele
+    numeros_file[numero_idx] = numeros_file[numero_idx].replace("\n", "")
+    if int(numeros_file[numero_idx]) > int(numeros_file[numero_idx-1]):
+        maior_q_anterior += 1
+
+print(f"{maior_q_anterior} são maiores que o numero anterior")
