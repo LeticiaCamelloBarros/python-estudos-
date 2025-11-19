@@ -1,0 +1,11 @@
+# enunciado da questão no comentário do commit 
+
+lista_de_nums = []
+for _ in range(3):
+    numero = int(input("digite um número : "))
+    if numero not in lista_de_nums:
+        lista_de_nums.append(numero)
+    else:
+        pass
+lista_de_nums.sort()
+print(lista_de_nums)
