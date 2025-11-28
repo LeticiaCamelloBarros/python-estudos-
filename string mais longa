@@ -1,0 +1,12 @@
+
+n_loop = int(input())
+lista_de_palavras = []
+for _ in range(n_loop):
+    palavra = input()
+    lista_de_palavras.append(palavra)
+mais_longa = ""
+for palavra in lista_de_palavras:
+    if len(palavra) > len(mais_longa):
+        mais_longa = palavra
+
+print(f"String mais longa: {mais_longa}")
