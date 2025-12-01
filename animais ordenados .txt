@@ -1,0 +1,16 @@
+
+
+qntd = int(input("quantos animais você quer cadastrar ?"))
+
+
+with open("animais.txt", "w", encoding="utf-8") as arquivo:
+    for i in range(qntd):
+        animal = input(f"insira o {i+1} animal ")
+        arquivo.write(animal+"\n")
+
+with open("animais.txt", "r", encoding="utf-8") as arquivo:
+    nomes_de_animais = arquivo.readlines()
+nomes_de_animais.sort()
+with open("animais.txt", "w", encoding="utf-8") as arquivo:
+    for animal in nomes_de_animais:
+        arquivo.write(animal)
