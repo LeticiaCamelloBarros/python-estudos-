@@ -1,0 +1,13 @@
+3 enunciado da questão no comentário do commmit 
+palavra = input()
+
+teclas_quebradas = input().split(" ")
+
+palavra_list = list(palavra)
+
+for carac in palavra_list:
+    if carac in teclas_quebradas:
+        palavra_list.remove(carac)
+
+nova_palavra = "".join(palavra_list)
+print(nova_palavra)
