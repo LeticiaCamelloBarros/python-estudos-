@@ -1,0 +1,14 @@
+with open("palavras-chave", "w", encoding="utf-8") as arquivo:
+    for _ in range(10):
+        palavra = input()
+        arquivo.write(palavra+"\n")
+
+with open("palavras-chave", "r", encoding="utf-8") as arquivo:
+    palavras_chave = arquivo.readlines()
+
+not_key = input()
+answer = False
+for palavra in palavras_chave:
+    if not_key == palavra.strip():
+        answer = True
+print(answer)
