@@ -1,0 +1,23 @@
+# enunciado no comentário do commit
+
+palavra = input("insira uma palavra :")
+while True:
+    try:
+        jumps = int(input("quantos saltos vc quer que cada letra dela dê ?"))
+        if 0 <= jumps <= 25:
+            break
+    except:
+        print("insira um número")
+
+
+palavra_list = list(palavra)
+
+new_list = []
+for letra in palavra_list:
+    numero_da_letra = ord(letra)
+    numero_da_letra_alt = numero_da_letra + jumps
+    letra = chr(numero_da_letra_alt)
+    new_list.append(letra)
+
+palavra = "".join(new_list)
+print(palavra)
