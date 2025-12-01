@@ -1,0 +1,11 @@
+
+
+def inverter(frase):
+    frase_invertida = frase[::-1]
+    frase_invertida = " ".join(frase_invertida)
+    return frase_invertida
+
+
+frase = input().split(" ")
+frase_invertida = inverter(frase)
+print(frase_invertida)
