@@ -1,0 +1,23 @@
+
+
+with open("precos.txt", "w", encoding="utf-8") as arquivo:
+    arquivo.write("Produto A - R$ 10.00"+"\n")
+    arquivo.write(" Produto B - R$ 25.50"+"\n")
+    arquivo.write("Produto C - R$ 5.75"+"\n")
+
+with open("precos.txt", "r", encoding="utf-8") as arquivo:
+    conteudo_arq_velho = arquivo.readlines()
+
+dicionario = {}
+for string in conteudo_arq_velho:
+    string = string.strip()
+    info, preco = string.split("R$")
+    dicionario[info] = preco
+
+print(dicionario)
+for info, preco in dicionario.items():
+    dicionario[info] = 1.1*float(preco)
+
+with open("precos.txt", "w", encoding="utf-8") as arquivo:
+    for info, preco in dicionario.items():
+        arquivo.write(f"{info} R$ {preco}" + "\n")
