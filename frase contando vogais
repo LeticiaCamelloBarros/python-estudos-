@@ -1,0 +1,11 @@
+
+frase = input()
+
+vogais = ("a", "e", "i", "o", "u")
+
+qntd_vogais = 0
+for carac in frase:
+    if carac in vogais:
+        qntd_vogais += 1
+
+print(qntd_vogais)
