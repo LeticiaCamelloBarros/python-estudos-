@@ -1,0 +1,15 @@
+# enunciado no comentário do commit 
+
+vogais = ("a", "e", "i", "o", "u", "A", "E", "I", "O", "U")
+
+string = input()
+
+nova_string = ""
+for carac in string:
+    if carac in vogais:
+        nova_string += "*"
+    else:
+        nova_string += carac
+
+
+print(nova_string)
