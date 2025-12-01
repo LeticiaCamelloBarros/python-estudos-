@@ -1,0 +1,24 @@
+
+
+with open("estoque.txt", "w", encoding="utf-8") as arquivo:
+    arquivo.write("Arroz , 10"+"\n")
+    arquivo.write("Feijão , 0"+"\n")
+    arquivo.write("Macarrão , 5"+"\n")
+    arquivo.write("Açúcar , 0 "+"\n")
+with open("estoque.txt", "r", encoding="utf-8") as arquivo:
+    lista_produtos = arquivo.readlines()
+produtos_preco = {}
+for produto in lista_produtos:
+    produto = produto.strip()
+    # tirando o barra N
+    produto, preco = produto.split(",")
+    produtos_preco[produto] = preco
+
+conteudo_novo_arq = []
+for produto, preco in produtos_preco.items():
+    if int(preco) > 0:
+        conteudo_novo_arq.append(f"{produto},{preco}")
+
+with open("estoque_atualizada", "w", encoding="utf-8") as arquivo:
+    for string in conteudo_novo_arq:
+        arquivo.write(string + "\n")
