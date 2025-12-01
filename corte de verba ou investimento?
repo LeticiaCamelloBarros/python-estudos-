@@ -1,0 +1,16 @@
+qntd_pares = int(input())
+
+verba = 0
+gasto = 0
+for _ in range(qntd_pares):
+    carac, valor = input().split(" ")
+    if carac == "V" or carac == "v":
+        verba += int(valor)
+    elif carac == "G" or carac == "g":
+        gasto += int(valor)
+
+if verba >= gasto:
+    print("A greve vai parar")
+
+if gasto > verba:
+    print("NÃO VAI TER CORTE, VAI TER LUTA!")
