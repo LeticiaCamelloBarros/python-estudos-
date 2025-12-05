@@ -1,0 +1,16 @@
+
+with open("frases.txt", "w", encoding="utf-8") as arquivo:
+    arquivo.write(
+        "Estudando Python\nprogramando em Python\nmanipulação de arquivos")
+with open("frases.txt", "r", encoding="utf-8") as arquivo:
+    with_py = []
+    leitura = arquivo.readlines()
+    for i in range(len(leitura)):
+        leitura[i] = leitura[i].strip()
+    for frase in leitura:
+        palavras = frase.split()
+        for palavra in palavras:
+            if palavra.lower() == "python":
+                with_py.append(frase)
+for frase in with_py:
+    print(frase)
