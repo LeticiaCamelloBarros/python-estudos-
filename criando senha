@@ -1,0 +1,16 @@
+# enunciado da questão no comentário do commit 
+dd = input()
+mm = input()
+aaaa = input()
+
+senha = ""
+senha += mm
+senha += "$"
+senha += dd[::-1]
+senha += "#"
+senha += dd
+senha += "!"
+senha += mm[::-1]
+senha += "*"
+senha += aaaa
+print(senha)
