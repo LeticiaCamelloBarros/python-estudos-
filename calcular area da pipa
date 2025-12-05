@@ -1,0 +1,18 @@
+
+N = int(input())
+lista_de_areas = []
+
+
+def calcular_area(x, y):
+    x = int(x)
+    y = int(y)
+    area = (x * y) / 2
+    return area
+
+
+for i in range(N):
+    x, y = input().split()
+    lista_de_areas.append(calcular_area(x, y))
+
+for area in lista_de_areas:
+    print(f"{area} cm²")
