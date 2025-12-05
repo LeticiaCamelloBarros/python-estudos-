@@ -1,0 +1,21 @@
+
+
+with open("frases.txt", "w", encoding="utf-8") as arquivo:
+    arquivo.write(
+        "Estudando Python\nprogramando em Python\nmanipulação de arquivos")
+busca = input()
+with open("frases.txt", "r", encoding="utf-8") as arquivo:
+    with_busca = []
+    leitura = arquivo.readlines()
+    for i in range(len(leitura)):
+        leitura[i] = leitura[i].strip()
+    for frase in leitura:
+        palavras = frase.split()
+        for palavra in palavras:
+            if palavra.lower() == busca:
+                with_busca.append(frase)
+if len(with_busca) == 0:
+    print("palavra não encontrada no arquivo")
+else:
+    for frase in with_busca:
+        print(frase)
