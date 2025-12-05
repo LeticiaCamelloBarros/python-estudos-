@@ -1,0 +1,21 @@
+
+
+with open("nomes.txt", "w", encoding="utf-8") as arquivo:
+    while True:
+        nome = input().lower()
+
+        if nome.lower() == "sair":
+            break
+        arquivo.write(nome+"\n")
+
+with open("nomes.txt", "r", encoding="utf-8") as arquivo:
+    lista_nomes = arquivo.readlines()
+
+nomes_repetidos = []
+for nome in lista_nomes:
+    if lista_nomes.count(nome) > 1:
+        if nome not in nomes_repetidos:
+            nomes_repetidos.append(nome)
+
+for nome in nomes_repetidos:
+    print(nome)
