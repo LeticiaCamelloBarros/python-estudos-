@@ -1,0 +1,20 @@
+
+
+with open("contatos.txt", "w", encoding="utf-8") as arquivo:
+    arquivo.write("Nome       Telefone\n")
+    while True:
+        desejo = input("voce deseja continuar ? , se não digite sair:").lower()
+        if desejo == "sair":
+            break
+        else:
+            nome = input("digite o nome : ").strip()
+            telefone = input("digite um telefone : ").strip()
+
+            arquivo.write(f"{nome}       {telefone}\n")
+with open("contatos.txt", "r", encoding="utf-8") as arquivo:
+    leitura = arquivo.readlines()
+    leitura_striped = []
+    for linha in leitura:
+        leitura_striped.append(linha.strip())
+for linha in leitura_striped:
+    print(linha)
