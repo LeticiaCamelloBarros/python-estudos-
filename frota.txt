@@ -1,0 +1,28 @@
+
+matriz = []
+with open("frota.txt", "w", encoding="utf-8") as arquivo:
+    arquivo.write("Navio Latitude Longitude Hora\n")
+    for linha_idx in range(3):
+        linha = []
+        for coluna_idx in range(4):
+            if coluna_idx == 0:
+                entrada = input("qual o navio ? :")
+                arquivo.write(entrada + " ")
+            elif coluna_idx == 1:
+                entrada = input("qual a latitude ? :")
+                arquivo.write(entrada + " ")
+            elif coluna_idx == 2:
+                entrada = input("qual a longitude :")
+                arquivo.write(entrada + " ")
+            elif coluna_idx == 3:
+                entrada = input("qual a hora ? :")
+                arquivo.write(entrada + " ")
+            linha.append(entrada)
+        matriz.append(linha)
+        arquivo.write("\n")
+
+with open("frota.txt", "r", encoding="utf-8") as arquivo:
+    leitura = arquivo.readlines()
+
+for linha in leitura:
+    print(linha)
