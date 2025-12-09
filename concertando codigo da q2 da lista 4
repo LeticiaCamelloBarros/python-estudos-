@@ -1,0 +1,57 @@
+# enunciado da questão no comentário do commit 
+# a única coisa que tinha na questão e eu não me atentei acerca dela foi que era para ter uma função também para leitura e escrita .
+def leitura(votos_invalidos):
+    starwars_votos = 0
+    startreck_votos = 0
+    votos_invalidos = 0
+    with open("votacao.txt", "r", encoding="utf-8") as arquivo:
+        votacao = arquivo.read()
+        for voto in votacao:
+            if voto == "1":
+                starwars_votos += 1
+            elif voto == "2":
+                startreck_votos += 1
+            else:
+                votos_invalidos += 1
+        if starwars_votos > startreck_votos:
+            mais_votado = "Star Wars"
+        elif startreck_votos > starwars_votos:
+            mais_votado = "Star Treck"
+
+        else:
+            mais_votado = "nenhum deles deu empate"
+        print(f"o filme mais votado foi : {mais_votado}")
+        print(f"na votação tivemos {votos_invalidos} votos inválidos")
+
+
+lista_de_votos = []
+votos_invalidos = 0
+for voto_idx in range(10):
+    while True:
+        try:
+            print("""
+         1-STAR WARS 
+         2-STAR TRECK
+         """)
+            # tratei o erro como caso queira inserir um número que não é inteiro
+            # por que não faz sentido avisar ao usuário que ele não está inserido
+            # string já que por padrão toda entrada no python é uma string
+            # até ser convertida em outra coisa
+            voto = int(input())
+            break
+        except ValueError:
+            # if voto not in votos_validos:
+            print("os votos só podem ser números , tente novamente")
+            votos_invalidos += 1
+        else:
+            lista_de_votos.append(voto)
+
+
+def escrita(lista_de_votos):
+    with open("votacao.txt", "w", encoding="utf-8") as arquivo:
+        for voto in lista_de_votos:
+            arquivo.write(str(voto))
+
+
+escrita(lista_de_votos)
+leitura(votos_invalidos)
