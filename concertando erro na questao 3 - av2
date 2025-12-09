@@ -1,0 +1,54 @@
+# enunciado da questão no comentário do commit 
+def registrar_participantes():
+    nomes_lst = []
+    tempos_lst = []
+    while True:
+        nome = input("Nome:")
+        if nome.upper() == "FIM":
+            break
+        tempo = int(input("tempo(min):"))
+        if tempo <= 0:
+            print("tempo inválido - participante ignorado")
+        else:
+            nomes_lst.append(nome)
+            tempos_lst.append(tempo)
+    return nomes_lst, tempos_lst
+
+
+nomes_lst, tempos_lst = registrar_participantes()
+
+
+def gerar_relatorios(nomes_lst, tempos_lst):
+    qntd_menorq30 = 0
+    qntd_part = len(nomes_lst)
+    indexs = []
+    vencedores = []
+    menor_tempo = min(tempos_lst)
+    if tempos_lst.count(menor_tempo) > 1:
+        for i in range(len(tempos_lst)):
+            if tempos_lst[i] == menor_tempo:
+                indexs.append(i)
+    else:
+        indice = tempos_lst.index(menor_tempo)
+        vencedores.append(nomes_lst[indice])
+    if len(indexs) > 1:
+        for i in indexs:
+            vencedores.append(nomes_lst[i])
+    for tempo in tempos_lst:
+        if tempo < 30:
+            qntd_menorq30 += 1
+    print("="*3, "RELATÓRIO DA CORRIDA", "="*3)
+    print(f"total de participantes válidos : {qntd_part}")
+    print(f"Melhor tempo : {menor_tempo}")
+    if len(vencedores) > 1:
+        print("vencedores", end=":")
+        print(vencedores)
+    else:
+        print("vencedor", end=":")
+        print(vencedores)
+    print()
+    print(
+        f"quantidade de participantes com tempo abaixo de 30 min : {qntd_menorq30}")
+
+
+gerar_relatorios(nomes_lst, tempos_lst)
