@@ -1,0 +1,25 @@
+
+info_dic = {}
+
+
+def ler_pessoas(i, info_dic):
+    print(f"pessoa {i + 1}")
+    nome = input("qual o seu nome ? ")
+    idade = int(input("qual a sua idade ? "))
+    altura = float(input("qual a sua altura ? "))
+    info_dic[nome] = [idade, altura]
+
+
+def imprimir_pessoas(info_dic):
+    for nome, infos in info_dic.items():
+        idade, altura = infos
+        print(
+            f"informações de {nome} : \n idade : {idade} \n altura : {altura}")
+
+
+qntd = int(input("quantas pessoas você deseja registrar?"))
+for i in range(qntd):
+    ler_pessoas(i, info_dic)
+
+
+imprimir_pessoas(info_dic)
