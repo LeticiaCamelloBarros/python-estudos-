@@ -1,12 +1,4 @@
-# Crie um programa em Python que use dicionários para armazenar nomes de
-# pessoas e suas idades. O programa deve:
-# 1. Perguntar quantas nomes o usuário deseja cadastrar.
-# 2. Pedir ao usuário que informe nome e idade de n pessoas.
-# 3. Armazenar esses dados em dois dicionários diferentes, nomes e
-# idades.
-# 4. Ao final, mostrar:
-# ● O nome da pessoa com a maior idade.
-# ● O nome da pessoa com a menor idade.
+# enunciado da questão no comentário do commit 
 
 nomes = {}
 idades = {}
@@ -18,10 +10,27 @@ for i in range(qntd):
     nomes[f"pessoa{i+1}"] = nome
     idades[f"pessoa{i+1}"] = idade
 
-for key, value in nomes.items():
-    print(key)
-    print(value)
-
+maior_idade = 0
+menor_idade = 9999999999999999999999999999999999999999999999999999999999999999999
+mais_velha = None
+mais_nova = None
 for key, value in idades.items():
-    print(key)
-    print(value)
+    if value < menor_idade:
+        menor_idade = value
+        pessoa_menor = key
+        # a variável pessoa menor vai armazenar a chave que vai dar acesso ao nome da pessoa com a menor idade
+
+    if value > maior_idade:
+        maior_idade = value
+        pessoa_maior = key
+        # a variável pessoa maior vai armazenar(em pessoa1, pessoa2...) a chave que vai dar acesso ao nome da pessoa com a maior idade
+
+for key, value in nomes.items():
+    if key == pessoa_menor:
+        mais_nova = value
+
+    if key == pessoa_maior:
+        mais_velha = value
+
+print(f"a pessoa com menor idade é : {mais_nova}")
+print(f"a pessoa com maior idade é : {mais_velha}")
