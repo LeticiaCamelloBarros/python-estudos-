@@ -1,0 +1,34 @@
+# enunciado no comentário do commit
+ 
+qntd_pag = int(input())
+lista_pag = []
+for _ in range(qntd_pag):
+    conteudo_pag = ""
+    qntd_frases = int(input())
+    for _ in range(qntd_frases):
+        frase = input()
+        conteudo_pag += frase
+    lista_pag.append(conteudo_pag)
+
+tabelas_de_vogais = []
+for pag in lista_pag:
+    cont_a = 0
+    cont_e = 0
+    cont_i = 0
+    cont_o = 0
+    cont_u = 0
+    for carac in pag:
+        if carac == "a" or carac == "A":
+            cont_a += 1
+        elif carac == "e" or carac == "E":
+            cont_e += 1
+        elif carac == "i" or carac == "I":
+            cont_i += 1
+        elif carac == "o" or carac == "O":
+            cont_o += 1
+        elif carac == "u" or carac == "U":
+            cont_u += 1
+    tabela = f"---Tabela de vogais---\nA:{cont_a} E:{cont_e} I:{cont_i} O:{cont_o} u:{cont_u}"
+    tabelas_de_vogais.append(tabela)
+for tabela in tabelas_de_vogais:
+    print(tabela)
