@@ -1,0 +1,35 @@
+# enunciado no comentário do commit
+diagonal_princip_elements = []
+qntd_linhas = int(input("quantas linhas ?"))
+qntd_colunas = int(input("quantas colunas ?"))
+matriz = []
+# pegando a matriz
+for linha_idx in range(qntd_linhas):
+    linha = []
+    for coluna_idx in range(qntd_colunas):
+        item = int(input(f"qual o item [{linha_idx}][{coluna_idx}]"))
+        linha.append(item)
+    matriz.append(linha)
+
+# registrando quais são as coordenadas da diagonal principal
+for linha_idx in range(qntd_linhas):
+    for coluna_idx in range(qntd_colunas):
+        if linha_idx == coluna_idx:
+            diagonal_princip_elements.append(
+                (matriz[linha_idx], matriz[linha_idx][coluna_idx]))
+
+# analizando se o elemento está abaixo de uma coordenada da diagonal principal
+# e se ele é igual a 0
+state = True
+for linha_idx in range(qntd_linhas):
+    for coluna_idx in range(qntd_colunas):
+        if linha_idx > coluna_idx:
+            if matriz[linha_idx][coluna_idx] == 0:
+                pass
+            else:
+                state = False
+
+if state == True:
+    print("é triangular inferior")
+else:
+    print("não é triangular inferior")
