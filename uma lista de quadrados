@@ -1,0 +1,13 @@
+
+
+n = int(input())
+lista = []
+for i in range(n):
+    item = int(input())
+    lista.append(item)
+lista_quad = []
+for item in lista:
+    quadrado = item * item
+    lista_quad.append(quadrado)
+print(lista)
+print(lista_quad)
