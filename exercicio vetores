@@ -1,0 +1,11 @@
+=
+vetor = []
+for i in range(8):
+    item = int(input())
+    vetor.append(item)
+
+x = int(input())
+y = int(input())
+
+soma = vetor[x] + vetor[y]
+print(soma)
